@@ -1,0 +1,5 @@
+C:\Users\Mobile Station\source\repos\ChatRoom\Business_layer\bin\Debug\netstandard1.6\Business_layer.deps.json
+C:\Users\Mobile Station\source\repos\ChatRoom\Business_layer\bin\Debug\netstandard1.6\Business_layer.dll
+C:\Users\Mobile Station\source\repos\ChatRoom\Business_layer\obj\Debug\netstandard1.6\Business_layer.csprojResolveAssemblyReference.cache
+C:\Users\Mobile Station\source\repos\ChatRoom\Business_layer\obj\Debug\netstandard1.6\Business_layer.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\source\repos\ChatRoom\Business_layer\obj\Debug\netstandard1.6\Business_layer.AssemblyInfo.cs
