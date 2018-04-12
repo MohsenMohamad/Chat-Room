@@ -5048,11 +5048,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Mobile Station\\source\\repos\\ChatRoom\\Communication_Layer\\Communication_Layer.csproj",
+      "projectUniqueName": "C:\\Users\\Mobile Station\\Documents\\chat room\\-ISE172_project\\ChatRoom\\Communication_Layer\\Communication_Layer.csproj",
       "projectName": "Communication_Layer",
-      "projectPath": "C:\\Users\\Mobile Station\\source\\repos\\ChatRoom\\Communication_Layer\\Communication_Layer.csproj",
+      "projectPath": "C:\\Users\\Mobile Station\\Documents\\chat room\\-ISE172_project\\ChatRoom\\Communication_Layer\\Communication_Layer.csproj",
       "packagesPath": "C:\\Users\\Mobile Station\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Mobile Station\\source\\repos\\ChatRoom\\Communication_Layer\\obj\\",
+      "outputPath": "C:\\Users\\Mobile Station\\Documents\\chat room\\-ISE172_project\\ChatRoom\\Communication_Layer\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Mobile Station\\AppData\\Roaming\\NuGet\\NuGet.Config",

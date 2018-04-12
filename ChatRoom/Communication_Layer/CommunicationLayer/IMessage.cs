@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Text;
 
-namespace MileStoneClient.CommunicationLayer
+namespace Communication_Layer.CommunicationLayer
 {
     public interface IMessage
     {

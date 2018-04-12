@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2DC86A7C-03D9-4B45-9A60-2F891E3BA34D}</ProjectGuid>
+    <ProjectGuid>{DE7E86FB-F956-402C-9BEA-839745659CDB}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>ChatRoom</RootNamespace>
     <AssemblyName>ChatRoom</AssemblyName>
@@ -45,7 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="test.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -53,9 +53,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business_layer\Business_layer.csproj">
+      <Project>{15ac5d81-4979-412b-a0ac-d86c4016abbc}</Project>
+      <Name>Business_layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Communication_Layer\Communication_Layer.csproj">
-      <Project>{91c4ed71-d617-446e-a942-b367f00aba28}</Project>
+      <Project>{e5c870d7-23fe-427b-9b0f-ed3a62b85707}</Project>
       <Name>Communication_Layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\persistent_layer\persistent_layer.csproj">
+      <Project>{941cb6d7-7fe7-4c0f-9ac5-0ea0441b1e32}</Project>
+      <Name>persistent_layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Presentation_Layer\Presentation_Layer.csproj">
+      <Project>{a69cc45c-ee56-4039-99a4-8aa98a8e79f4}</Project>
+      <Name>Presentation_Layer</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

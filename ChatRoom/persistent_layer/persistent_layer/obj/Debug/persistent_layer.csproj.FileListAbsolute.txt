@@ -1,6 +1,0 @@
-C:\Users\adnan\source\repos\persistent_layer\persistent_layer\bin\Debug\persistent_layer.dll
-C:\Users\adnan\source\repos\persistent_layer\persistent_layer\bin\Debug\persistent_layer.pdb
-C:\Users\adnan\source\repos\persistent_layer\persistent_layer\obj\Debug\persistent_layer.csprojResolveAssemblyReference.cache
-C:\Users\adnan\source\repos\persistent_layer\persistent_layer\obj\Debug\persistent_layer.csproj.CoreCompileInputs.cache
-C:\Users\adnan\source\repos\persistent_layer\persistent_layer\obj\Debug\persistent_layer.dll
-C:\Users\adnan\source\repos\persistent_layer\persistent_layer\obj\Debug\persistent_layer.pdb

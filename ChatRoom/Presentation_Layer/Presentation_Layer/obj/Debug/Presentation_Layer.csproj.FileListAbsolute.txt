@@ -1,6 +1,0 @@
-C:\Users\Mobile Station\source\repos\ChatRoom\Presentation_Layer\Presentation_Layer\bin\Debug\Presentation_Layer.exe.config
-C:\Users\Mobile Station\source\repos\ChatRoom\Presentation_Layer\Presentation_Layer\bin\Debug\Presentation_Layer.exe
-C:\Users\Mobile Station\source\repos\ChatRoom\Presentation_Layer\Presentation_Layer\bin\Debug\Presentation_Layer.pdb
-C:\Users\Mobile Station\source\repos\ChatRoom\Presentation_Layer\Presentation_Layer\obj\Debug\Presentation_Layer.csproj.CoreCompileInputs.cache
-C:\Users\Mobile Station\source\repos\ChatRoom\Presentation_Layer\Presentation_Layer\obj\Debug\Presentation_Layer.exe
-C:\Users\Mobile Station\source\repos\ChatRoom\Presentation_Layer\Presentation_Layer\obj\Debug\Presentation_Layer.pdb

@@ -1,12 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text;
+using Communication_Layer.CommunicationLayer;
 using MileStoneClient.CommunicationLayer;
 
-namespace MileStoneClient
+namespace Communication_Layer
 {
     class Program
     {
-
         static void Main(string[] args)
         {
             string gourpID = "27";
@@ -20,11 +21,11 @@ namespace MileStoneClient
             // return with updated time and guid
             Console.WriteLine("MessageTime:{0} , Guid:{1}\n", msg.Date.ToString(), msg.Id);
 
-            Console.WriteLine(msg+"\n");
+            Console.WriteLine(msg + "\n");
             //Cannot create instance of CommunicationMessage
             //IMessage msg2 = new CommunicationMessage(); Error
 
-            
+
 
             List<IMessage> msgList = Communication.Instance.GetTenMessages(url);
             Console.WriteLine("Reuest 10 Last Messages:");

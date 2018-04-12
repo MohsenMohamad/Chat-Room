@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Text;
+using Communication_Layer.CommunicationLayer;
 
 namespace MileStoneClient.CommunicationLayer
 {
@@ -111,10 +112,10 @@ namespace MileStoneClient.CommunicationLayer
                     jToken["groupID"].ToString(),
                     jToken["userName"].ToString(),
                     jToken["messageContent"].ToString(),
-                    Convert.ToInt64(jToken["msgDate"])    
+                    Convert.ToInt64(jToken["msgDate"])
                 );
             }
-            
+
         }
         #endregion
 
