@@ -13,15 +13,22 @@ namespace persistent_layer
     {
         public static void saveuserdata(List<User> userlist)
         {
-            File.WriteAllText("userdata.dat", new JavaScriptSerializer().Serialize(userlist));
+           // File.Create("userdata.dat");
+            File.AppendAllText("userdata.dat", new JavaScriptSerializer().Serialize(userlist));
+            //File.WriteAllText("userdata.dat", new JavaScriptSerializer().Serialize(userlist));
         }
         public static List<User> LoaduserData()
         {
+            // File.Create("userdata.dat");
             if (File.Exists("userdata.dat"))
             {
                 return new JavaScriptSerializer().Deserialize<List<User>>(File.ReadAllText("userdata.dat"));
             }
-            else return new List<User>();
+            else
+            {
+                List<User> tmp= new List<User>();
+                return tmp;
+            }
         }
         public static void savemessagedata(List<Message> messagelist)
         {

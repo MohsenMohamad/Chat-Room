@@ -9,12 +9,12 @@ namespace Business_layer.Login_out
 {
     public class login
     {
-        private List<User> userList = new List<User>();
+        private List<User> userList;
         public User Login(string user, string password)
         {
             //LOG
             LOG.LogFile("login action with user name:" + user+ " | Password: " + password);
-            
+            userList = Data_Base.LoaduserData();
             //check if the user allready exest in the data base
             foreach (User x in userList)
             {

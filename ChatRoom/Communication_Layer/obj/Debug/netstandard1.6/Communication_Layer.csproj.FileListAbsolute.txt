@@ -6,3 +6,11 @@ C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Communication_Layer\obj\Debug\
 C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Communication_Layer\bin\Debug\netstandard1.6\Communication_Layer.pdb
 C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Communication_Layer\obj\Debug\netstandard1.6\Communication_Layer.dll
 C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Communication_Layer\obj\Debug\netstandard1.6\Communication_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\netstandard1.6\Communication_Layer.deps.json
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\netstandard1.6\Communication_Layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\netstandard1.6\Communication_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\netstandard1.6\Communication_Layer.csprojResolveAssemblyReference.cache
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\netstandard1.6\Communication_Layer.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\netstandard1.6\Communication_Layer.AssemblyInfo.cs
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\netstandard1.6\Communication_Layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\netstandard1.6\Communication_Layer.pdb

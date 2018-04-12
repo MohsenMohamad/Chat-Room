@@ -11,11 +11,11 @@ namespace Presentation_Layer
 {
     class CLI
     {
+
         static void Main(string[] args)
         {
-            User loged_in_user;
+            User loged_in_user = null;
             bool loged_in = false;
-
             // load info from database()
             for (; ; )
             {
@@ -28,12 +28,14 @@ namespace Presentation_Layer
                 if (Key.Equals("1"))
                 {
                     Console.Clear();
-                    RegisterScreen();
+                    loged_in_user=RegisterScreen();
+                    if (loged_in_user != null)
+                        loged_in = true;
                 }
                 else if (Key.Equals("2"))
                 {
                     Console.Clear();
-                    LoginScreen(Key);
+                    LoginScreen();
                 }
                 else if (Key.Equals("3"))
                     break;
@@ -46,62 +48,77 @@ namespace Presentation_Layer
             }
         }
 
-        public static void LoginScreen(String Key)
+        public static void LoginScreen()
         {
             Console.WriteLine("2.Log-In Screen.\r\n\r\n");
+            Console.WriteLine("UserName : ");
+            String Name = Console.ReadLine();
+            Console.WriteLine("Password:");
+            String password = Console.ReadLine();
+
+            // checks if user is already registered or if it is new , returns true if added returns false if note
+            login temp = new login();
+            User user =temp.Login(Name, password);
+            if (user == null)
+            {
+                Console.WriteLine("UserName or Password is incorrect");
+                System.Threading.Thread.Sleep(3000);
+                Console.Clear();
+                return;
+            }
+
+                
+            LoggedInScreen(user);
+
+
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+
+        public static User RegisterScreen()
+        {
+            Console.WriteLine("1.Registering Screen.\r\n");
+            
             Console.WriteLine("User Name :");
             String UserName = Console.ReadLine();
             int id = -1;
             do
             {
-                Console.WriteLine("User ID :");
+                Console.WriteLine("Group ID :");
                 String UserId = Console.ReadLine();
-                if (Int32.TryParse("UserId", out id))
-                    Console.WriteLine(id);
+                if (Int32.TryParse(UserId, out id))
+                {
+
+                }
+                    //Console.WriteLine(id);
                 else
                     Console.WriteLine("the UserID must be a numberpleas try again.");
-            } while (id != -1&id>0);
+            } while (id == -1|id<0);
             Console.WriteLine("Enter password:");
             String password = Console.ReadLine();
 
             User user = new User(UserName, id, password);
-            new register
-            int i= login. //(UserName, password);
-            //   User Account = new User(UserName, UserId);
-            //   if (Account.isRegistered(UserName, UserId) == false)
-            //  {
-            //       Console.WriteLine("User not found!");
-            //       Console.ReadKey();
-            //       Console.Clear();
-            //  }
-
-            //      else LoggedInScreen(Account, Key);
-        }
-
-
-        public static void RegisterScreen()
-        {
-            Console.WriteLine("1.Registering Screen.\r\n");
-            Console.WriteLine("UserName : ");
-            String Name = Console.ReadLine();
-            Console.WriteLine("ID:");
-            String ID = Console.ReadLine();
-
-            bool done = Register(Name, ID);    // checks if user is already registered or if it is new , returns true if added returns false if note
-            if (done)
-                Console.WriteLine("added!");
-            else
-                Console.WriteLine("User is already registered!");
-
-
-            Console.ReadKey();
-            Console.Clear();
-
+            Console.WriteLine(user.Get_Nick_Name());
+            Console.ReadLine();
+            register temp = new register();
+            User newuser = temp.newRegister(user); 
+            if (newuser == null) {
+                Console.WriteLine("the User is already registerd");
+                return null;
+            }
+            if (!newuser.Get_Nick_Name().Equals(user.Get_Nick_Name()))
+            {
+                Console.WriteLine("the Group is ulready registerd with another User Name");
+                return null;
+            }
+            Console.WriteLine("added!");
+            return newuser;
         }
 
 
 
-        public static void LoggedInScreen(String Key)    // User Account gets
+        public static void LoggedInScreen(User user)    // User Account gets
         {
 
             bool LoggedIn = true;
@@ -133,7 +150,7 @@ namespace Presentation_Layer
                 if (Key2 == "6")
                 {
                     Console.WriteLine("Logged Out");      //
-                    Key = "3";
+                    
                 }
 
             }

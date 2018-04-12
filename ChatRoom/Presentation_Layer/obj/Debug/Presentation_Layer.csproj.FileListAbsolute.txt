@@ -14,3 +14,19 @@ C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Presentation_Layer\bin\Debug\C
 C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csproj.CopyComplete
 C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.exe
 C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csprojResolveAssemblyReference.cache
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.exe
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Presentation_Layer.exe.config
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Presentation_Layer.exe
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Presentation_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Business_layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\persistent_layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Communication_Layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Business_layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\persistent_layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Communication_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csproj.CopyComplete
