@@ -4,7 +4,7 @@ using System.Text;
 using Communication_Layer.CommunicationLayer;
 
 namespace persistent_layer.Data_type
-{
+{/*
     [Serializable]
     public class Message : IMessage
     {
@@ -47,5 +47,5 @@ namespace persistent_layer.Data_type
                 throw new NotImplementedException();
             }
         }
-    }
+    }*/
 }

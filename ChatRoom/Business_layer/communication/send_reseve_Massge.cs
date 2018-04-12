@@ -33,25 +33,29 @@ namespace Business_layer.communication
                 }
             } while (m);
             string url = "http://ise172.ise.bgu.ac.il";
-            Message newmsg=(Message)MileStoneClient.CommunicationLayer.Communication.Send(url, Convert.ToString(gID),userName, mes);
+            MileStoneClient.CommunicationLayer.Communication a = new MileStoneClient.CommunicationLayer.Communication();
+            IMessage newmsg=a.Send(url, Convert.ToString(gID),userName, mes);
             //save to the data base which is not ready -_-
 
             //-----------------------------------------------------------------------
             Console.WriteLine("message is sent..");
         }
-        public static List<Message> recallMessage()
+        public static List<IMessage> recallMessage()
         {
             //----------------------------------------------------------------------------------------here
             string url = "http://ise172.ise.bgu.ac.il";
             List<IMessage> msgList = MileStoneClient.CommunicationLayer.Communication.GetTenMessages(url);
-            List<Message> msgList2 = new List<Message>();
+            List<IMessage> msgList2 = new List<IMessage>();
             foreach(IMessage x in msgList)
             {
-                msgList2.Add((Message)x);
+                Console.WriteLine(x);
+                //msgList2.Add((Message)x);
             }
             //save the list in the 
-            persistent_layer.Data_Base.savemessagedata(msgList2);
-            return msgList2;
+            Console.ReadLine();
+            persistent_layer.Data_Base.savemessagedata(msgList);
+            
+            return msgList;
         }
     }
 }

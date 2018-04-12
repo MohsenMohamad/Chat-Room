@@ -7,6 +7,8 @@ using System.Web.Script.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using persistent_layer.Data_type;
+using Communication_Layer;
+using Communication_Layer.CommunicationLayer;
 
 namespace persistent_layer
 {
@@ -35,34 +37,34 @@ namespace persistent_layer
                 return tmp;
             }
         }
-        public static void savemessagedata(List<Message> messagelist)
+        public static void savemessagedata(List<IMessage> messagelist)
         {
             Stream myFileStream = File.Create("messagedata.dat");
             BinaryFormatter serializes = new BinaryFormatter();
             serializes.Serialize(myFileStream, messagelist);
             myFileStream.Close();
         }
-        public static List<Message> loadmessageData()
+        public static List<IMessage> loadmessageData()
         {
             if (File.Exists("messagedata.dat"))
             {
                 Stream myOtherFileStream = File.OpenRead("messagedata.dat");
                 BinaryFormatter deserializer = new BinaryFormatter();
-                List<Message> a = (List<Message>)deserializer.Deserialize(myOtherFileStream);
+                List<IMessage> a = (List<IMessage>)deserializer.Deserialize(myOtherFileStream);
                 myOtherFileStream.Close();
                 return a;
             }
             else
             {
-                List<Message> tmp = new List<Message>();
+                List<IMessage> tmp = new List<IMessage>();
                 return tmp;
             }
         }
 
-        public static List<Message> returnmessages(int x)
+        public static List<IMessage> returnmessages(int x)
         {
-            List<Message> messagesb = loadmessageData();
-            List<Message> messagesa = loadmessageData();
+            List<IMessage> messagesb = loadmessageData();
+            List<IMessage> messagesa = loadmessageData();
             for (int i = messagesb.Count-x ; i < messagesb.Count; i++)
             {
                 messagesa.Add(messagesb[i]);

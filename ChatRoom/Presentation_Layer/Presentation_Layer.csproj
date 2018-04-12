@@ -57,6 +57,10 @@
       <Project>{15ac5d81-4979-412b-a0ac-d86c4016abbc}</Project>
       <Name>Business_layer</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Communication_Layer\Communication_Layer.csproj">
+      <Project>{e892005b-c4fc-4eab-9ce8-98383248b664}</Project>
+      <Name>Communication_Layer</Name>
+    </ProjectReference>
     <ProjectReference Include="..\persistent_layer\persistent_layer.csproj">
       <Project>{941cb6d7-7fe7-4c0f-9ac5-0ea0441b1e32}</Project>
       <Name>persistent_layer</Name>

@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Communication_Layer\Communication_Layer.csproj">
-      <Project>{e5c870d7-23fe-427b-9b0f-ed3a62b85707}</Project>
+      <Project>{e892005b-c4fc-4eab-9ce8-98383248b664}</Project>
       <Name>Communication_Layer</Name>
     </ProjectReference>
     <ProjectReference Include="..\persistent_layer\persistent_layer.csproj">

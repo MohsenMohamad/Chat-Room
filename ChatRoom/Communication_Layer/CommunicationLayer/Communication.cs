@@ -17,7 +17,7 @@ namespace MileStoneClient.CommunicationLayer
         private static readonly object padlock = new object();
 
         //private constructor for singleton
-        private Communication()
+        public Communication()
         {
 
         }
@@ -50,7 +50,7 @@ namespace MileStoneClient.CommunicationLayer
         /// <param name="url">url of the server</param>
         /// <param name="msg">CommunicationMessage message content</param>
         /// <returns>Guid from server back to client.</returns>
-        public static IMessage Send(string url, string gourpID, string nickName, string messageContent)
+        public IMessage Send(string url, string gourpID, string nickName, string messageContent)
         {
             return SimpleHTTPClient.SendPostRequest(url, new Request(new Guid(), gourpID, nickName, messageContent, 0, "1"));
         }

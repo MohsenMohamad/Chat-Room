@@ -7,6 +7,7 @@ using Business_layer.Login_out;
 using Business_layer;
 using persistent_layer.Data_type;
 using Business_layer.communication;
+using Communication_Layer.CommunicationLayer;
 
 namespace Presentation_Layer
 {
@@ -143,7 +144,10 @@ namespace Presentation_Layer
                     
                 else if (Key2 == "2")
                 {
+                    Console.Clear();
                     Console.WriteLine("Retrieve");
+                    List<IMessage> msg=Business_layer.communication.send_reseve_Massge.recallMessage();
+                    
                 }
                     //
                 else if (Key2 == "3")
