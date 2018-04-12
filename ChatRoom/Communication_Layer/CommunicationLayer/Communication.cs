@@ -50,7 +50,7 @@ namespace MileStoneClient.CommunicationLayer
         /// <param name="url">url of the server</param>
         /// <param name="msg">CommunicationMessage message content</param>
         /// <returns>Guid from server back to client.</returns>
-        public IMessage Send(string url, string gourpID, string nickName, string messageContent)
+        public static IMessage Send(string url, string gourpID, string nickName, string messageContent)
         {
             return SimpleHTTPClient.SendPostRequest(url, new Request(new Guid(), gourpID, nickName, messageContent, 0, "1"));
         }
@@ -60,7 +60,7 @@ namespace MileStoneClient.CommunicationLayer
         /// </summary>
         /// <param name="url">url of the server</param>
         /// <returns>List of last ten CommunicationMessage</returns>
-        public List<IMessage> GetTenMessages(string url)
+        public static List<IMessage> GetTenMessages(string url)
         {
             List<IMessage> retVal = SimpleHTTPClient.GetListRequest(url, "2");
             return retVal;

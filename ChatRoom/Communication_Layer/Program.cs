@@ -15,7 +15,7 @@ namespace Communication_Layer
             string messageContent = "just testing ;)";
             string url = "http://ise172.ise.bgu.ac.il";  // url: ip + port
 
-
+            /*
             IMessage msg = Communication.Instance.Send(url, gourpID, nickName, messageContent);
 
             // return with updated time and guid
@@ -35,6 +35,7 @@ namespace Communication_Layer
                 Console.WriteLine("");
             }
             Console.ReadKey();
+            */
         }
     }
 }

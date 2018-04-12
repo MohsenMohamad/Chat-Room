@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Business_layer.Login_out;
 using Business_layer;
 using persistent_layer.Data_type;
+using Business_layer.communication;
 
 namespace Presentation_Layer
 {
@@ -14,8 +15,6 @@ namespace Presentation_Layer
 
         static void Main(string[] args)
         {
-            User loged_in_user = null;
-            bool loged_in = false;
             // load info from database()
             for (; ; )
             {
@@ -28,9 +27,8 @@ namespace Presentation_Layer
                 if (Key.Equals("1"))
                 {
                     Console.Clear();
-                    loged_in_user=RegisterScreen();
-                    if (loged_in_user != null)
-                        loged_in = true;
+                    RegisterScreen();
+                    Console.Clear();
                 }
                 else if (Key.Equals("2"))
                 {
@@ -65,18 +63,13 @@ namespace Presentation_Layer
                 System.Threading.Thread.Sleep(3000);
                 Console.Clear();
                 return;
-            }
-
-                
+            }   
             LoggedInScreen(user);
-
-
-            Console.ReadKey();
-            Console.Clear();
+            return;
         }
 
 
-        public static User RegisterScreen()
+        public static void RegisterScreen()
         {
             Console.WriteLine("1.Registering Screen.\r\n");
             
@@ -86,34 +79,43 @@ namespace Presentation_Layer
             do
             {
                 Console.WriteLine("Group ID :");
-                String UserId = Console.ReadLine();
-                if (Int32.TryParse(UserId, out id))
+                int UserId=-1;
+                try
                 {
-
+                    UserId = Convert.ToInt32(Console.ReadLine());
                 }
-                    //Console.WriteLine(id);
-                else
+                catch
+                {
                     Console.WriteLine("the UserID must be a numberpleas try again.");
-            } while (id == -1|id<0);
+                }
+                id = UserId;
+                if(id<0)
+                    Console.WriteLine("the UserID must be a numberpleas try again.");
+            } while (id == -1| id<0);
             Console.WriteLine("Enter password:");
             String password = Console.ReadLine();
 
             User user = new User(UserName, id, password);
-            Console.WriteLine(user.Get_Nick_Name());
-            Console.ReadLine();
             register temp = new register();
             User newuser = temp.newRegister(user); 
             if (newuser == null) {
                 Console.WriteLine("the User is already registerd");
-                return null;
+                System.Threading.Thread.Sleep(3000);
+                Console.Clear();
+                return ;
             }
             if (!newuser.Get_Nick_Name().Equals(user.Get_Nick_Name()))
             {
                 Console.WriteLine("the Group is ulready registerd with another User Name");
-                return null;
+                System.Threading.Thread.Sleep(3000);
+                Console.Clear();
+                return ;
             }
             Console.WriteLine("added!");
-            return newuser;
+            System.Threading.Thread.Sleep(3000);
+            Console.Clear();
+            LoggedInScreen(user);
+            return;
         }
 
 
@@ -128,29 +130,42 @@ namespace Presentation_Layer
                 Console.WriteLine("1.Write (and send) a new message (max. Length 150 characters).");
                 Console.WriteLine("2.Retrieve last 10 messages from the server");
                 Console.WriteLine("3.Display last 20 retrieved messages");
-                Console.WriteLine("4.Display all retrieved messages");
+                Console.WriteLine("4.Display all sent by this user messages");
                 Console.WriteLine("5.Logout");
-                Console.WriteLine("6.Exit");
 
                 String Key2 = Console.ReadLine();
 
                 if (Key2 == "1")
-                    Console.WriteLine("Sends a Message");     //
-                if (Key2 == "2")
-                    Console.WriteLine("Retrieve");            //
-                if (Key2 == "3")
-                    Console.WriteLine("Dispaly");             //
-                if (Key2 == "4")
-                    Console.WriteLine("Dispaly All");         //
-                if (Key2 == "5")
+                {
+                    send_reseve_Massge temp = new send_reseve_Massge();
+                    temp.Send(user.Get_Nick_Name(), user.Get_ID());
+                }
+                    
+                else if (Key2 == "2")
+                {
+                    Console.WriteLine("Retrieve");
+                }
+                    //
+                else if (Key2 == "3")
+                {
+                    Console.WriteLine("Dispaly");
+                }
+                    //
+                else if (Key2 == "4")
+                {
+                    Console.WriteLine("Dispaly All");
+                }
+                    //
+                else if (Key2 == "5")
                 {
                     Console.WriteLine("Logged Out");      //
+                    Console.Clear();
                     LoggedIn = false;
                 }
-                if (Key2 == "6")
+                else
                 {
-                    Console.WriteLine("Logged Out");      //
-                    
+                    Console.WriteLine("invaled input ... please try again after 3 sec");
+                    Console.Clear();
                 }
 
             }

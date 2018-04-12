@@ -10,8 +10,8 @@ namespace persistent_layer.Data_type
     public class User
     {
         public string Name;//{ get; set; }
-        private string PassWord;//{ get; set; }
-        private int GroupID;// { get; set; }
+        public string PassWord;//{ get; set; }
+        public int GroupID;// { get; set; }
         public User(string name, int id, string password)
         {
             Name = name;

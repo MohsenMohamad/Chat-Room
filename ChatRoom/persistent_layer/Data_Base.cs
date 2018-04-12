@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using persistent_layer.Data_type;
 
 namespace persistent_layer
@@ -13,41 +14,56 @@ namespace persistent_layer
     {
         public static void saveuserdata(List<User> userlist)
         {
-           // File.Create("userdata.dat");
-            File.AppendAllText("userdata.dat", new JavaScriptSerializer().Serialize(userlist));
-            //File.WriteAllText("userdata.dat", new JavaScriptSerializer().Serialize(userlist));
+            Stream myFileStream = File.Create("userdata.dat");
+            BinaryFormatter serializes = new BinaryFormatter();
+            serializes.Serialize(myFileStream, userlist);
+            myFileStream.Close();
         }
         public static List<User> LoaduserData()
         {
-            // File.Create("userdata.dat");
             if (File.Exists("userdata.dat"))
             {
-                return new JavaScriptSerializer().Deserialize<List<User>>(File.ReadAllText("userdata.dat"));
+                Stream myOtherFileStream = File.OpenRead("userdata.dat");
+                BinaryFormatter deserializer = new BinaryFormatter();
+                List<User> a = (List<User>)deserializer.Deserialize(myOtherFileStream);
+                myOtherFileStream.Close();
+                return a;
             }
             else
             {
-                List<User> tmp= new List<User>();
+                List<User> tmp = new List<User>();
                 return tmp;
             }
         }
         public static void savemessagedata(List<Message> messagelist)
         {
-            File.WriteAllText("messagedata.dat", new JavaScriptSerializer().Serialize(messagelist));
+            Stream myFileStream = File.Create("messagedata.dat");
+            BinaryFormatter serializes = new BinaryFormatter();
+            serializes.Serialize(myFileStream, messagelist);
+            myFileStream.Close();
         }
         public static List<Message> loadmessageData()
         {
             if (File.Exists("messagedata.dat"))
             {
-                return new JavaScriptSerializer().Deserialize<List<Message>>(File.ReadAllText("messagedata.dat"));
+                Stream myOtherFileStream = File.OpenRead("messagedata.dat");
+                BinaryFormatter deserializer = new BinaryFormatter();
+                List<Message> a = (List<Message>)deserializer.Deserialize(myOtherFileStream);
+                myOtherFileStream.Close();
+                return a;
             }
-            else return new List<Message>();
+            else
+            {
+                List<Message> tmp = new List<Message>();
+                return tmp;
+            }
         }
 
         public static List<Message> returnmessages(int x)
         {
             List<Message> messagesb = loadmessageData();
             List<Message> messagesa = loadmessageData();
-            for (int i = 0; i < messagesb.Count; i++)
+            for (int i = messagesb.Count-x ; i < messagesb.Count; i++)
             {
                 messagesa.Add(messagesb[i]);
             }

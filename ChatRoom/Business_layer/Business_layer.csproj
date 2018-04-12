@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="communication\Retrieve.cs" />
+    <Compile Include="communication\send_reseve_Massge.cs" />
     <Compile Include="Login_out\Login.cs" />
     <Compile Include="Login_out\register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
