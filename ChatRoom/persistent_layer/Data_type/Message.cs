@@ -4,10 +4,22 @@ using System.Text;
 using Communication_Layer.CommunicationLayer;
 
 namespace persistent_layer.Data_type
-{/*
+{
     [Serializable]
     public class Message : IMessage
     {
+       public Guid ID;
+       public string UserName;
+       public DateTime Data;
+        public string MessageContent;
+       
+
+        public Message(Guid Id, string UserName, DateTime Data, string MessageContent) {
+            this.ID = Id;
+            this.UserName = UserName;
+            this.Data = Data;
+            this.MessageContent = MessageContent;
+        }
         public Guid Id
         {
             get
@@ -47,5 +59,5 @@ namespace persistent_layer.Data_type
                 throw new NotImplementedException();
             }
         }
-    }*/
+    }
 }

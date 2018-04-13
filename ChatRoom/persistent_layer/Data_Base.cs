@@ -37,34 +37,46 @@ namespace persistent_layer
                 return tmp;
             }
         }
-        public static void savemessagedata(List<IMessage> messagelist)
+        public static void savemessagedata(List<Message> messagelist)
         {
+           /* Stream myFileStream = File.Create("messagedata.dat");
+            List<Message> a = returnmessages(10);
+            foreach (Message x in messagelist) {
+                if (!(a.Contains(x))){
+
+                    BinaryFormatter serializes = new BinaryFormatter();
+                    serializes.Serialize(myFileStream, a);
+                    myFileStream.Close();
+                   }
+                }
+            }*/
             Stream myFileStream = File.Create("messagedata.dat");
             BinaryFormatter serializes = new BinaryFormatter();
             serializes.Serialize(myFileStream, messagelist);
             myFileStream.Close();
         }
-        public static List<IMessage> loadmessageData()
+        
+        public static List<Message> loadmessageData()
         {
             if (File.Exists("messagedata.dat"))
             {
                 Stream myOtherFileStream = File.OpenRead("messagedata.dat");
                 BinaryFormatter deserializer = new BinaryFormatter();
-                List<IMessage> a = (List<IMessage>)deserializer.Deserialize(myOtherFileStream);
+                List<Message> a = (List<Message>)deserializer.Deserialize(myOtherFileStream);
                 myOtherFileStream.Close();
                 return a;
             }
             else
             {
-                List<IMessage> tmp = new List<IMessage>();
+                List<Message> tmp = new List<Message>();
                 return tmp;
             }
         }
 
-        public static List<IMessage> returnmessages(int x)
+        public static List<Message> returnmessages(int x)
         {
-            List<IMessage> messagesb = loadmessageData();
-            List<IMessage> messagesa = loadmessageData();
+            List<Message> messagesb = loadmessageData();
+            List<Message> messagesa = new List<Message>();
             for (int i = messagesb.Count-x ; i < messagesb.Count; i++)
             {
                 messagesa.Add(messagesb[i]);
