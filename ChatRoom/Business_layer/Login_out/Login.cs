@@ -12,8 +12,8 @@ namespace Business_layer.Login_out
         private List<User> userList;
         public User Login(string user, string password)
         {
-            //LOG
-            LOG.LogFile("login action with user name:" + user+ " | Password: " + password);
+            //LOGGING
+            logging_activety.logging_msg("login action with user name:" + user + " | Password: " + password);
             userList = Data_Base.LoaduserData();
             //check if the user allready exest in the data base
             foreach (User x in userList)

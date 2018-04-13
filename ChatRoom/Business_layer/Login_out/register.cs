@@ -18,7 +18,7 @@ namespace Business_layer.Login_out
             //Console.WriteLine(userList.Count());
            // Console.ReadLine();
             //LOG 
-            LOG.LogFile( "registration action with new user " + user.Get_Nick_Name() + " and a ID Group " + user.Get_ID());
+            logging_activety.logging_msg("registration action with new user " + user.Get_Nick_Name() + " and a ID Group " + user.Get_ID());
             //Data_Base.LoaduserData();
             userList = Data_Base.LoaduserData();
             //check if the user allready exest in the data base

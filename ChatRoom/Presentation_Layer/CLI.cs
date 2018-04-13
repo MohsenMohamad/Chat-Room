@@ -24,7 +24,7 @@ namespace Presentation_Layer
                 Console.WriteLine("3.Exit");
 
                 String Key = Console.ReadLine();
-
+                logging_activety.logging_msg("User input in the Main screen is " + Key);
                 if (Key.Equals("1"))
                 {
                     Console.Clear();
@@ -133,36 +133,94 @@ namespace Presentation_Layer
                 Console.WriteLine("3.Display last 20 retrieved messages");
                 Console.WriteLine("4.Display all sent by this user messages");
                 Console.WriteLine("5.Logout");
-
+                Console.WriteLine();
+                Console.WriteLine();
                 String Key2 = Console.ReadLine();
-
+                logging_activety.logging_msg("User input in the Login screen is :"+Key2);
                 if (Key2 == "1")
                 {
                     send_reseve_Massge temp = new send_reseve_Massge();
-                    temp.Send(user.Get_Nick_Name(), user.Get_ID());
+                    bool m = false;
+                    string mes;
+                    do
+                    {
+                        Console.WriteLine("Enter your message with Limet of 150 charctar");
+                        mes = Console.ReadLine();
+                        logging_activety.logging_msg("User input in the wright message screen is :" + mes);
+                        if (mes.Length > 150)
+                        {
+                            Console.WriteLine("the message you Enterd is to long pleas try again");
+                            m = true;
+                        }
+                        else
+                        {
+                            m = false;
+                        }
+                    } while (m);
+                    temp.Send(user.Get_Nick_Name(), user.Get_ID(),mes);
+                    Console.WriteLine("Message sent...");
+                    Console.Read();
+                    Console.Clear();
                 }
                     
                 else if (Key2 == "2")
                 {
+                    logging_activety.logging_msg("trying to retreve the last messages on the server");
+                    Console.WriteLine("Retrieved");
+                    List<Message> msg=Business_layer.communication.send_reseve_Massge.recallMessage();
+                    foreach(Message x in msg)
+                    {
+                        Console.WriteLine(x.UserName+" from grupe"+x.ID+":                 "+x.Data);
+                        Console.WriteLine(x.MessageContent);
+                    }
+                    Console.Read();
                     Console.Clear();
-                    Console.WriteLine("Retrieve");
-                    List<IMessage> msg=Business_layer.communication.send_reseve_Massge.recallMessage();
-                    
+
                 }
                     //
                 else if (Key2 == "3")
                 {
+                    logging_activety.logging_msg("retriving the last 10 messages stored in the data base");
+                    /*
+                    List<Message> msg = Business_layer.communication.Retrieve.pullLastMassages();
+                    if (msg.Contains)
+                        foreach (Message x in msg)
+                        {
+                            Console.WriteLine(x.Data + ":");
+                            Console.WriteLine(x.MessageContent);
+                        }
+                    else
+                        Console.WriteLine("no messages sent by this User");
+                    */
                     Console.WriteLine("Dispaly");
+                    Console.Read();
+                    Console.Clear();
                 }
                     //
                 else if (Key2 == "4")
                 {
-                    Console.WriteLine("Dispaly All");
+                    logging_activety.logging_msg("retriving the messages sent by the user from the data base" );
+                    Console.WriteLine("Dispaly All");//-------------------------------------fuck me 
+                    /*
+                    List<Message> msg = Business_layer.communication.Retrieve.pullMassages(user);
+                    if (msg.Contains)
+                        foreach (Message x in msg)
+                        {
+                            Console.WriteLine(x.Data + ":");
+                            Console.WriteLine(x.MessageContent);
+                        }
+                    else
+                        Console.WriteLine("no messages sent by this User");
+                        */
+                    Console.Read();
+                    Console.Clear();
                 }
                     //
                 else if (Key2 == "5")
                 {
-                    Console.WriteLine("Logged Out");      //
+                    logging_activety.logging_msg("logging out from the login screen");
+                    Console.WriteLine("Logged Out...");      //
+                    System.Threading.Thread.Sleep(1500);
                     Console.Clear();
                     LoggedIn = false;
                 }
@@ -173,11 +231,6 @@ namespace Presentation_Layer
                 }
 
             }
-        }
-
-        public static bool Register(String s1, String s2)
-        {
-            return true;
         }
     }
 }
