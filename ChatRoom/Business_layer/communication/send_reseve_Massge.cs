@@ -35,15 +35,21 @@ namespace Business_layer.communication
             logging_activety.logging_msg("trying to recall the last 10 messages form the server");
             List<IMessage> msgList = MileStoneClient.CommunicationLayer.Communication.GetTenMessages(url);
             List<Message> msgList2 = new List<Message>();
+            Guid tmp = new Guid();
+            if (persistent_layer.Data_Base.returnmessages(1).Count()>0)
+                tmp =persistent_layer.Data_Base.returnmessages(1)[0].ID;
             foreach (IMessage x in msgList)
             {
-                
-                msgList2.Add(new Message(x.Id, x.UserName, x.Date, x.MessageContent));
+                if (tmp == x.Id)
+                {
+                    msgList2.Clear();
+                }
+                else
+                msgList2.Add(new Message(x.Id, x.UserName, x.Date.AddHours(3), x.MessageContent));
             } 
-            Console.ReadLine();
             persistent_layer.Data_Base.savemessagedata(msgList2);
-            
-            return msgList2;
+            return persistent_layer.Data_Base.returnmessages(10);
+            //return msgList2;
         }
     }
 }
