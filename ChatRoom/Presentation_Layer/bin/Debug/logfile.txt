@@ -652,3 +652,19 @@ Data Time:23/04/2018 13:57:50
 Action:logging out from the login screen
 Data Time:23/04/2018 13:57:53
 Action:User input in the Main screen is 3
+Data Time:24/04/2018 11:46:54
+Action:User input in the Main screen is 2
+Data Time:24/04/2018 11:47:01
+Action:login action with user name:shadi | Password: shadi
+Data Time:24/04/2018 11:47:04
+Action:User input in the Login screen is :4
+Data Time:24/04/2018 11:47:04
+Action:retriving the messages sent by the user from the data base
+Data Time:24/04/2018 11:47:04
+Action:trying to recall the messages sent by the user form the data base
+Data Time:24/04/2018 11:47:09
+Action:User input in the Login screen is :5
+Data Time:24/04/2018 11:47:09
+Action:logging out from the login screen
+Data Time:24/04/2018 11:47:12
+Action:User input in the Main screen is 3
