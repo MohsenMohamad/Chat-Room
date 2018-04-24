@@ -39,21 +39,24 @@ namespace persistent_layer
         }
         public static void savemessagedata(List<Message> messagelist)
         {
-           /* Stream myFileStream = File.Create("messagedata.dat");
-            List<Message> a = returnmessages(10);
-            foreach (Message x in messagelist) {
-                if (!(a.Contains(x))){
-
-                    BinaryFormatter serializes = new BinaryFormatter();
-                    serializes.Serialize(myFileStream, a);
-                    myFileStream.Close();
-                   }
-                }
-            }*/
-            Stream myFileStream = File.Create("messagedata.dat");
-            BinaryFormatter serializes = new BinaryFormatter();
-            serializes.Serialize(myFileStream, messagelist);
-            myFileStream.Close();
+            
+            if (File.Exists("messagedata.dat"))
+            {
+                List<Message> newML = loadmessageData();
+                newML.AddRange(messagelist);
+                Stream myFileStream = File.Create("messagedata.dat");
+                BinaryFormatter serializes = new BinaryFormatter();
+                serializes.Serialize(myFileStream, newML);
+                myFileStream.Close();
+            }
+            else
+            {
+                Stream myFileStream = File.Create("messagedata.dat");
+                BinaryFormatter serializes = new BinaryFormatter();
+                serializes.Serialize(myFileStream, messagelist);
+                myFileStream.Close();
+            }
+                
         }
         
         public static List<Message> loadmessageData()
@@ -77,6 +80,10 @@ namespace persistent_layer
         {
             List<Message> messagesb = loadmessageData();
             List<Message> messagesa = new List<Message>();
+            if (messagesb.Count < x)
+            {
+                x = messagesb.Count;
+            }
             for (int i = messagesb.Count-x ; i < messagesb.Count; i++)
             {
                 messagesa.Add(messagesb[i]);

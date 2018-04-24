@@ -15,13 +15,21 @@ namespace Business_layer.communication
         {
             logging_activety.logging_msg("trying to recall the messages sent by the user form the data base");
             //no data bass to retreve from.....
-            List<Message> msgList=null; 
-            return msgList;
+            List<Message> msgList = new List<Message>();
+            List<Message> newmsg = new List<Message>();
+            msgList = persistent_layer.Data_Base.loadmessageData();
+            foreach (Message x in msgList) {
+                if (x.UserName == user.Name) {
+                    newmsg.Add(x);
+                }
+            }
+                return newmsg;
         }
         public static List<Message> pullLastMassages()
         {
             logging_activety.logging_msg("trying to recall the last 20 messages form the data base");
-            List<Message> msgList = null;
+
+            List<Message> msgList = persistent_layer.Data_Base.returnmessages(20);
             return msgList;
         }
 
