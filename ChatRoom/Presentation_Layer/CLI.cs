@@ -187,7 +187,7 @@ namespace Presentation_Layer
                     foreach(Message x in msg)
                     {
                         Console.WriteLine();
-                        Console.WriteLine(x.UserName+":                 "+x.Data);
+                        Console.WriteLine(x.grupid+":"+x.UserName+":                 "+x.Data);
                         Console.WriteLine(x.MessageContent);
                     }
                     Console.Read();
@@ -203,7 +203,7 @@ namespace Presentation_Layer
                     if (msg.Count()>0)
                         foreach (Message x in msg)
                         {
-                            Console.WriteLine(x.UserName + ":     "+x.Data);
+                            Console.WriteLine(x.grupid+":"+x.UserName + ":     "+x.Data);
                             Console.WriteLine(x.MessageContent);
                             Console.WriteLine();
                         }
@@ -224,8 +224,9 @@ namespace Presentation_Layer
                     if (msg.Count>0) 
                         foreach (Message x in msg)
                         {
-                            Console.WriteLine(x.Data + ":");
+                            Console.WriteLine(x.grupid + ":" + x.UserName + ":     " + x.Data);
                             Console.WriteLine(x.MessageContent);
+                            Console.WriteLine();
                         }
                     else
                         Console.WriteLine("no messages sent by this User");

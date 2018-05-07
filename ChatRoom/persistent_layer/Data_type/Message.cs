@@ -11,14 +11,16 @@ namespace persistent_layer.Data_type
        public Guid ID;
        public string UserName;
        public DateTime Data;
-        public string MessageContent;
+       public string MessageContent;
+        public string grupid;
        
 
-        public Message(Guid Id, string UserName, DateTime Data, string MessageContent) {
+        public Message(Guid Id, string UserName, DateTime Data, string MessageContent,string gid) {
             this.ID = Id;
             this.UserName = UserName;
             this.Data = Data;
             this.MessageContent = MessageContent;
+            this.grupid = gid;
         }
         public Guid Id
         {

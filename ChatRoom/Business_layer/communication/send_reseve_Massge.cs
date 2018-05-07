@@ -22,7 +22,7 @@ namespace Business_layer.communication
             
             MileStoneClient.CommunicationLayer.Communication a = new MileStoneClient.CommunicationLayer.Communication();
             IMessage newmsg=a.Send(url, Convert.ToString(gID),userName, usermsg);
-            Message saveMsg =new Message(newmsg.Id, newmsg.UserName, newmsg.Date, newmsg.MessageContent);
+            Message saveMsg =new Message(newmsg.Id, newmsg.UserName, newmsg.Date.AddHours(3), newmsg.MessageContent,newmsg.GroupID);
             List<Message> msgList = new List<Message>();
             msgList.Add(saveMsg);
             persistent_layer.Data_Base.savemessagedata(msgList);
@@ -45,7 +45,7 @@ namespace Business_layer.communication
                     msgList2.Clear();
                 }
                 else
-                msgList2.Add(new Message(x.Id, x.UserName, x.Date.AddHours(3), x.MessageContent));
+                msgList2.Add(new Message(x.Id, x.UserName, x.Date.AddHours(3), x.MessageContent,x.GroupID));
             } 
             persistent_layer.Data_Base.savemessagedata(msgList2);
             return persistent_layer.Data_Base.returnmessages(10);
