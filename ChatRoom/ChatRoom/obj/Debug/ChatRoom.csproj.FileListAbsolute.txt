@@ -1,0 +1,29 @@
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\bin\Debug\ChatRoom.exe.config
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\bin\Debug\ChatRoom.exe
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\bin\Debug\ChatRoom.pdb
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csprojResolveAssemblyReference.cache
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csproj.CopyComplete
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\obj\Debug\ChatRoom.exe
+C:\Users\Mobile Station\Desktop\ChatRoom\ChatRoom\ChatRoom\obj\Debug\ChatRoom.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\ChatRoom.exe.config
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\ChatRoom.exe
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\ChatRoom.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Business_layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Communication_Layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\persistent_layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Presentation_Layer.exe
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Business_layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Communication_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\persistent_layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Presentation_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Presentation_Layer.exe.config
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csprojResolveAssemblyReference.cache
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csproj.CopyComplete
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.exe
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.pdb

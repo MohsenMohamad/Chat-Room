@@ -1,0 +1,9 @@
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Communication_Layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Communication_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.csproj.CopyComplete
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.dll
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.pdb
+C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.csprojResolveAssemblyReference.cache
