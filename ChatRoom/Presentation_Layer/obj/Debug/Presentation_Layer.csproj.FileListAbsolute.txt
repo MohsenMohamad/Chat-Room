@@ -30,3 +30,22 @@ C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentatio
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Newtonsoft.Json.xml
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Communication_Layer.pdb
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csproj.CopyComplete
+<<<<<<< HEAD
+=======
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Presentation_Layer.exe.config
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Presentation_Layer.exe
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Presentation_Layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Business_layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Communication_Layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\persistent_layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Business_layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Communication_Layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\persistent_layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csprojResolveAssemblyReference.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csproj.CoreCompileInputs.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.csproj.CopyComplete
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.exe
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Presentation_Layer\obj\Debug\Presentation_Layer.pdb
+>>>>>>> Presentaion_Layer

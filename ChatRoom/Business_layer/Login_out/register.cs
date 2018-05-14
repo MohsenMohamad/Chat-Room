@@ -30,10 +30,17 @@ namespace Business_layer.Login_out
                     {
                         return null;
                     }
+<<<<<<< HEAD
                     if (x.Get_ID() == user.Get_ID())
                     {
                         return x;
                     }
+=======
+                   /* if (x.Get_ID() == user.Get_ID())
+                    {
+                        return x;
+                    }*/
+>>>>>>> Presentaion_Layer
 
                 }
             }
