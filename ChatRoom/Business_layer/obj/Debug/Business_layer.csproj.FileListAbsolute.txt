@@ -118,3 +118,16 @@ C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Business_la
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CopyComplete
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Newtonsoft.Json.dll
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Communication_Layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Communication_Layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csprojResolveAssemblyReference.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CoreCompileInputs.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CopyComplete
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.pdb

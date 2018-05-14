@@ -7,3 +7,12 @@ C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communicati
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.dll
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.pdb
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.csprojResolveAssemblyReference.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Communication_Layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Communication_Layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.csprojResolveAssemblyReference.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.csproj.CoreCompileInputs.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.csproj.CopyComplete
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Communication_Layer\obj\Debug\Communication_Layer.pdb

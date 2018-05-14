@@ -54,6 +54,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Chat.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -61,6 +65,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Chat.xaml.cs">
+      <DependentUpon>Chat.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -92,6 +99,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Business_layer\Business_layer.csproj">
+      <Project>{15ac5d81-4979-412b-a0ac-d86c4016abbc}</Project>
+      <Name>Business_layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\persistent_layer\persistent_layer.csproj">
+      <Project>{941cb6d7-7fe7-4c0f-9ac5-0ea0441b1e32}</Project>
+      <Name>persistent_layer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Presentation_Layer\Presentation_Layer.csproj">
+      <Project>{a69cc45c-ee56-4039-99a4-8aa98a8e79f4}</Project>
+      <Name>Presentation_Layer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

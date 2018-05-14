@@ -30,10 +30,10 @@ namespace Business_layer.Login_out
                     {
                         return null;
                     }
-                    if (x.Get_ID() == user.Get_ID())
+                   /* if (x.Get_ID() == user.Get_ID())
                     {
                         return x;
-                    }
+                    }*/
 
                 }
             }

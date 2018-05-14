@@ -16,13 +16,15 @@
         <Button x:Name="Button_Back" Content="Back" HorizontalAlignment="Left" Margin="151,242,0,0" VerticalAlignment="Top" Width="75" Click="Button_Back_Click"/>
         <Button x:Name="Button_Register" Content="Register" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Register_Click"/>
         <Button x:Name="Button_Login" Content="Log-In" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Login_Click"/>
-        <Button  Content="Don't have an account ? click here to register!" Click="Register_Screen_Click" Margin="338,219,203,173">
+        <Button x:Name="Button_registerScreen"  Content="Don't have an account ? click here to register!" Click="Register_Screen_Click" Margin="338,219,203,173">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <ContentPresenter />
                 </ControlTemplate>
             </Button.Template>
         </Button>
+        <CheckBox Content="Show Password" HorizontalAlignment="Left" Margin="435,160,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
+        <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="409,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click"/>
 
     </Grid>
 </Window>
