@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using persistent_layer.Data_type;
+using Business_layer.communication;
 
 namespace GUI
 {
@@ -32,8 +33,9 @@ namespace GUI
 
             foreach (Message x in Message_List)
             {
-             Label_Messages.Content=(x.grupid + ":" + x.UserName + ":                 " + x.Data)+(Label_Messages.Content);
-             
+                Block_Message.Inlines.Add(x.Data+"  "+x.MessageContent+"\r");
+                Block_Message.Inlines.Add(x.Data+ "  " + x.MessageContent + "\r");
+                Block_Message.Inlines.Add(x.Data+ "  " + x.MessageContent + "\r");
             }
             
 
@@ -57,6 +59,22 @@ namespace GUI
             // logout
             Application.Current.Shutdown();
 
+        }
+
+        private void Button_Send_Click(object sender, RoutedEventArgs e)
+        {
+            send_reseve_Massge temp = new send_reseve_Massge();
+            String mes;
+            mes = Text_Message.Text;
+            if (mes.Length > 150 | mes.Length < 1)
+            {
+                //exe the massage length 150
+            }
+            else
+            {
+                temp.Send(userlogin.Get_Nick_Name(), userlogin.Get_ID(), mes);
+            }
+            Text_Message.Clear();
         }
     }
 }
