@@ -141,6 +141,7 @@ namespace GUI
             //    timer.Stop();
             //else
             //  timer.Start();
+            Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
             Message_List = Business_layer.communication.Retrieve.pullallMassages();
             //loging the activety of the project 
             logging_activety.logging_msg("pul new filter instens");
