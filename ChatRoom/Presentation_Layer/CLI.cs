@@ -1,4 +1,5 @@
-﻿using System;
+﻿
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ using Business_layer;
 using persistent_layer.Data_type;
 using Business_layer.communication;
 using Communication_Layer.CommunicationLayer;
-
+using Business_layer.Filter_sort;
 namespace Presentation_Layer
 {
     class CLI
@@ -56,21 +57,22 @@ namespace Presentation_Layer
                 Console.WriteLine("2.Log-In Screen.\r\n\r\n");
                 Console.WriteLine("UserName : ");
                 Name = Console.ReadLine();
-            } while (Name=="");
-            do { 
+            } while (Name == "");
+            do
+            {
                 Console.WriteLine("Password:");
                 password = Console.ReadLine();
             } while (password == "");
             // checks if user is already registered or if it is new , returns true if added returns false if note
             login temp = new login();
-            User user =temp.Login(Name, password);
+            User user = temp.Login(Name, password);
             if (user == null)
             {
                 Console.WriteLine("UserName or Password is incorrect");
                 System.Threading.Thread.Sleep(1500);
                 Console.Clear();
                 return;
-            }   
+            }
             LoggedInScreen(user);
             return;
         }
@@ -82,15 +84,16 @@ namespace Presentation_Layer
             String password;
             Console.WriteLine("1.Registering Screen.\r\n");
 
-            do { 
-            Console.WriteLine("User Name :");
-            UserName = Console.ReadLine();
-            } while (UserName=="");
+            do
+            {
+                Console.WriteLine("User Name :");
+                UserName = Console.ReadLine();
+            } while (UserName == "");
             int id = -1;
             do
             {
                 Console.WriteLine("Group ID :");
-                int UserId=-1;
+                int UserId = -1;
                 try
                 {
                     UserId = Convert.ToInt32(Console.ReadLine());
@@ -100,9 +103,9 @@ namespace Presentation_Layer
                     Console.WriteLine("the UserID must be a number pleas try again.");
                 }
                 id = UserId;
-                if(id<0)
+                if (id < 0)
                     Console.WriteLine("the UserID must be a number pleas try again.");
-            } while (id == -1| id<0);
+            } while (id == -1 | id < 0);
             do
             {
                 Console.WriteLine("Enter password:");
@@ -110,19 +113,20 @@ namespace Presentation_Layer
             } while (password == "");
             User user = new User(UserName, id, password);
             register temp = new register();
-            User newuser = temp.newRegister(user); 
-            if (newuser == null) {
+            User newuser = temp.newRegister(user);
+            if (newuser == null)
+            {
                 Console.WriteLine("the User is already registerd");
                 System.Threading.Thread.Sleep(1500);
                 Console.Clear();
-                return ;
+                return;
             }
             if (!newuser.Get_Nick_Name().Equals(user.Get_Nick_Name()))
             {
                 Console.WriteLine("the Group is ulready registerd with another User Name");
                 System.Threading.Thread.Sleep(1500);
                 Console.Clear();
-                return ;
+                return;
             }
             Console.WriteLine("added!");
             System.Threading.Thread.Sleep(1500);
@@ -163,7 +167,7 @@ namespace Presentation_Layer
                         Console.WriteLine("Enter your message with Limet of 150 charctar");
                         mes = Console.ReadLine();
                         logging_activety.logging_msg("User input in the wright message screen is :" + mes);
-                        if (mes.Length > 150|mes.Length<1)
+                        if (mes.Length > 150 | mes.Length < 1)
                         {
                             Console.WriteLine("the message you Enterd is too long or too short pleas try again");
                             m = true;
@@ -173,55 +177,34 @@ namespace Presentation_Layer
                             m = false;
                         }
                     } while (m);
-                    temp.Send(user.Get_Nick_Name(), user.Get_ID(),mes);
+                    temp.Send(user.Get_Nick_Name(), user.Get_ID(), mes);
                     Console.WriteLine("Message sent...");
                     Console.Read();
                     Console.Clear();
                 }
-                    
+
                 else if (Key2 == "2")
                 {
                     logging_activety.logging_msg("trying to retreve the last messages on the server");
                     //Console.WriteLine("Retrieved");
-                    List<Message> msg=Business_layer.communication.send_reseve_Massge.recallMessage();
-                    foreach(Message x in msg)
+                    List<Message> msg = Business_layer.communication.send_reseve_Massge.recallMessage();
+                    foreach (Message x in msg)
                     {
                         Console.WriteLine();
-                        Console.WriteLine(x.grupid+":"+x.UserName+":                 "+x.Data);
+                        Console.WriteLine(x.grupid + ":" + x.UserName + ":                 " + x.Data);
                         Console.WriteLine(x.MessageContent);
                     }
                     Console.Read();
                     Console.Clear();
 
                 }
-                    //
+                //
                 else if (Key2 == "3")
                 {
                     logging_activety.logging_msg("retriving the last 20 messages stored in the data base");
-                    
+
                     List<Message> msg = Business_layer.communication.Retrieve.pullLastMassages();
-                    if (msg.Count()>0)
-                        foreach (Message x in msg)
-                        {
-                            Console.WriteLine(x.grupid+":"+x.UserName + ":     "+x.Data);
-                            Console.WriteLine(x.MessageContent);
-                            Console.WriteLine();
-                        }
-                    else
-                        Console.WriteLine("no messages sent by this User");
-                    
-                    Console.WriteLine("Dispaly");
-                    Console.Read();
-                    Console.Clear();
-                }
-                    //
-                else if (Key2 == "4")
-                {
-                    logging_activety.logging_msg("retriving the messages sent by the user from the data base" );
-                    Console.WriteLine("Dispaly All");
-                   
-                    List<Message> msg = Business_layer.communication.Retrieve.pullMassages(user);
-                    if (msg.Count>0) 
+                    if (msg.Count() > 0)
                         foreach (Message x in msg)
                         {
                             Console.WriteLine(x.grupid + ":" + x.UserName + ":     " + x.Data);
@@ -230,11 +213,32 @@ namespace Presentation_Layer
                         }
                     else
                         Console.WriteLine("no messages sent by this User");
-                        
+
+                    Console.WriteLine("Dispaly");
                     Console.Read();
                     Console.Clear();
                 }
-                    
+                //
+                else if (Key2 == "4")
+                {
+                    logging_activety.logging_msg("retriving the messages sent by the user from the data base");
+                    Console.WriteLine("Dispaly All");
+
+                    List<Message> msg = Business_layer.communication.Retrieve.pullMassages(user);
+                    if (msg.Count > 0)
+                        foreach (Message x in msg)
+                        {
+                            Console.WriteLine(x.grupid + ":" + x.UserName + ":     " + x.Data);
+                            Console.WriteLine(x.MessageContent);
+                            Console.WriteLine();
+                        }
+                    else
+                        Console.WriteLine("no messages sent by this User");
+
+                    Console.Read();
+                    Console.Clear();
+                }
+
                 else if (Key2 == "5")
                 {
                     logging_activety.logging_msg("logging out from the login screen");
@@ -247,6 +251,7 @@ namespace Presentation_Layer
                 {
                     Console.WriteLine("invaled input ... please try again after 3 sec");
                     Console.Clear();
+                    
                 }
 
             }

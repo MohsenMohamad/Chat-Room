@@ -38,7 +38,7 @@ namespace persistent_layer.Data_type
         }
         public bool sameuser(User user)
         {
-            if (user.Get_Nick_Name().Equals(this.Get_Nick_Name()))
+            if (user.Get_Nick_Name().Equals(this.Get_Nick_Name())&(PassWordCheck(user.PassWord)))
             {
                 return true;
             }

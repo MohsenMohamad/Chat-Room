@@ -6,25 +6,25 @@
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Label x:Name="Label_Name" Content="User Name :" HorizontalAlignment="Left" Margin="170,93,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_Password" Content="Password :" HorizontalAlignment="Left" Margin="170,135,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="Label_ID" Content="Group ID :" HorizontalAlignment="Left" Margin="171,180,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="Text_Name" HorizontalAlignment="Left" Height="23" Margin="289,97,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <TextBox x:Name="Text_ID" HorizontalAlignment="Left" Height="23" Margin="289,180,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-        <PasswordBox x:Name="Box_Password" HorizontalAlignment="Left" Margin="289,143,0,0" VerticalAlignment="Top" Width="120"/>
-        <Button x:Name="Button_Back" Content="Back" HorizontalAlignment="Left" Margin="151,242,0,0" VerticalAlignment="Top" Width="75" Click="Button_Back_Click"/>
+    <Grid Background="Black">
+        <Label x:Name="Label_Name" Content="User Name :" HorizontalAlignment="Left" Margin="160,43,0,0" VerticalAlignment="Top" Background="Black" Foreground="#FFFFFDFD"/>
+        <Label x:Name="Label_Password" Content="Password :" HorizontalAlignment="Left" Margin="160,112,0,0" VerticalAlignment="Top" Foreground="White" RenderTransformOrigin="0.514,-1.049"/>
+        <Label x:Name="Label_ID" Content="Group ID :" HorizontalAlignment="Left" Margin="160,180,0,0" VerticalAlignment="Top" Foreground="White"/>
+        <TextBox x:Name="Text_Name" HorizontalAlignment="Left" Height="32" Margin="205,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Background="#FF0056FF"/>
+        <TextBox x:Name="Text_ID" HorizontalAlignment="Left" Height="32" Margin="205,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Background="#FF0056FF"/>
+        <PasswordBox x:Name="Box_Password" HorizontalAlignment="Left" Margin="205,143,0,0" VerticalAlignment="Top" Width="248" Height="32" Background="#FF0056FF"/>
+        <Button x:Name="Button_Back" Content="Back" HorizontalAlignment="Left" Margin="111,282,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Click="Button_Back_Click" Background="#FF0056FF"/>
         <Button x:Name="Button_Register" Content="Register" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Register_Click"/>
-        <Button x:Name="Button_Login" Content="Log-In" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Login_Click"/>
-        <Button x:Name="Button_registerScreen"  Content="Don't have an account ? click here to register!" Click="Register_Screen_Click" Margin="338,219,203,173">
+        <Button x:Name="Button_Login" Content="Log-In" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="Button_Login_Click" Foreground="Black" Background="#FF0056FF"/>
+        <Button x:Name="Button_registerScreen"  Content="Don't have an account ? click here to register!" Click="Register_Screen_Click" Margin="284,333,256.6,59" Background="#FF0056FF" Foreground="#FF0056FF">
             <Button.Template>
                 <ControlTemplate TargetType="{x:Type Button}">
                     <ContentPresenter />
                 </ControlTemplate>
             </Button.Template>
         </Button>
-        <CheckBox Content="Show Password" HorizontalAlignment="Left" Margin="435,160,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked"/>
-        <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="409,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click"/>
+        <CheckBox Content="Show Password" HorizontalAlignment="Left" Margin="531,160,0,0" VerticalAlignment="Top" Checked="CheckBox_Checked" Foreground="#FF0056FF"/>
+        <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="409,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click" Background="#FF0056FF"/>
 
     </Grid>
 </Window>

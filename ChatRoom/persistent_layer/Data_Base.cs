@@ -90,6 +90,10 @@ namespace persistent_layer
             }
             return messagesa;
         }
+        public static List<Message> returnallmessages() {
+            List<Message> messagesb = loadmessageData();
+            return messagesb;
+        }
         public static void deleteusers()
         {
             File.Delete("userdata.dat");

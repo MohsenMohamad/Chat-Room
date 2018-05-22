@@ -3,15 +3,34 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:w="clr-namespace:System.Windows.Workarounds"
         xmlns:local="clr-namespace:GUI"
         mc:Ignorable="d"
         Title="Chat" Height="450" Width="800">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    </Window.Resources>
     <Grid>
-        <Button x:Name="Button_Send" Content="send" HorizontalAlignment="Left" Margin="489,328,0,0" VerticalAlignment="Top" Width="75" Click="Button_Send_Click"/>
-        <Button x:Name="Button_Filter_Sort" Content="filter and sort" HorizontalAlignment="Left" Margin="191,328,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button x:Name="Button_Logout" Content="Logout" HorizontalAlignment="Left" Margin="673,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Logout_Click"/>
-        <TextBox x:Name="Text_Message" HorizontalAlignment="Left" Height="35" Margin="293,275,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
-        <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="673,35,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click"/>
-        <TextBlock x:Name="Block_Message" HorizontalAlignment="Left" Margin="254,22,0,0" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <Button x:Name="Button_Send" Content="send" HorizontalAlignment="Left" Margin="556,353,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="Button_Send_Click"/>
+        <Button x:Name="Button_Logout" Content="Logout" HorizontalAlignment="Left" Margin="713,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Logout_Click"/>
+        <TextBox Text="{Binding MessageContent}"  HorizontalAlignment="Left" Height="35" Margin="267,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" KeyDown="TextBox_KeyDown"/>
+        <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="713,35,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click"/>
+        <ComboBox x:Name="Combo_Sort" HorizontalAlignment="Left" Margin="53,87,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem Content="timestamp" IsSelected="True"/>
+            <ComboBoxItem Content="Nickname"/>
+            <ComboBoxItem Content="g_id, nickname, and timestamp"/>
+        </ComboBox>
+        <ComboBox x:Name="Combo_Filter" HorizontalAlignment="Left" Margin="26,176,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBoxItem x:Name="n" Content="None" IsSelected="True"/>
+            <ComboBoxItem x:Name="g" Content="group"/>
+            <ComboBoxItem x:Name="u" Content="user"/>
+        </ComboBox>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <RadioButton x:Name="RadioButton1" Content="ascending" HorizontalAlignment="Left" Margin="88,123,0,0" VerticalAlignment="Top" IsChecked="True" />
+        <RadioButton x:Name="RadioButton2" Content="descending" HorizontalAlignment="Left" Margin="88,143,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="Combo_Id" Visibility="{Binding ElementName=g,Path=IsSelected,Converter={StaticResource  BoolToVisConverter}}" HorizontalAlignment="Left" Margin="150,245,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox x:Name="Combo_User" Visibility="{Binding ElementName=u,Path=IsSelected,Converter={StaticResource  BoolToVisConverter}}" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Width="120"/>
+        <ListBox ItemsSource="{Binding Messages}"  w:ListBox.AutoScroll="True"   ScrollViewer.CanContentScroll="True" IsEnabled="True" HorizontalAlignment="Right" Height="277" VerticalAlignment="Top" Width="391" Margin="0,35,147.6,0"  />
+
     </Grid>
 </Window>

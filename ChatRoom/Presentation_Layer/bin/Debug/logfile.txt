@@ -914,3 +914,57 @@ Data Time:24/04/2018 16:58:00
 Action:logging out from the login screen
 Data Time:24/04/2018 16:58:02
 Action:User input in the Main screen is 3
+Data Time:5/15/2018 7:37:46 PM
+Action:User input in the Main screen is 2
+Data Time:5/15/2018 7:37:49 PM
+Action:login action with user name:adnan | Password: adnan
+Data Time:5/15/2018 8:51:13 PM
+Action:User input in the Main screen is 2
+Data Time:5/15/2018 8:51:17 PM
+Action:login action with user name:adnan | Password: adnan
+Data Time:5/15/2018 8:51:19 PM
+Action:User input in the Login screen is :1
+Data Time:5/15/2018 8:51:22 PM
+Action:User input in the wright message screen is :hi
+Data Time:5/15/2018 8:51:22 PM
+Action:trying to send message by the User:adnan G_ID:22
+Data Time:5/15/2018 8:51:22 PM
+Action:trying to send message by the User:adnan G_ID:22
+Data Time:5/15/2018 10:24:20 PM
+Action:User input in the Main screen is 2
+Data Time:5/15/2018 10:24:26 PM
+Action:login action with user name:adnan | Password: adnan
+Data Time:5/15/2018 10:24:31 PM
+Action:User input in the Login screen is :1
+Data Time:5/15/2018 10:24:35 PM
+Action:User input in the wright message screen is :hiiii
+Data Time:5/15/2018 10:24:35 PM
+Action:trying to send message by the User:adnan G_ID:22
+Data Time:5/15/2018 10:24:35 PM
+Action:trying to send message by the User:adnan G_ID:22
+Data Time:5/15/2018 10:25:42 PM
+Action:User input in the Main screen is 2
+Data Time:5/15/2018 10:25:48 PM
+Action:login action with user name:adnan | Password: adnan
+Data Time:5/15/2018 10:25:52 PM
+Action:User input in the Login screen is :2
+Data Time:5/15/2018 10:25:52 PM
+Action:trying to retreve the last messages on the server
+Data Time:5/15/2018 10:25:52 PM
+Action:trying to recall the last 10 messages form the server
+Data Time:5/16/2018 4:00:20 PM
+Action:User input in the Main screen is 2
+Data Time:5/16/2018 4:00:23 PM
+Action:login action with user name:adnan | Password: adnan
+Data Time:5/16/2018 4:00:25 PM
+Action:User input in the Login screen is :2
+Data Time:5/16/2018 4:00:25 PM
+Action:trying to retreve the last messages on the server
+Data Time:5/16/2018 4:00:25 PM
+Action:trying to recall the last 10 messages form the server
+Data Time:5/16/2018 4:00:37 PM
+Action:User input in the Login screen is :3
+Data Time:5/16/2018 4:00:37 PM
+Action:retriving the last 20 messages stored in the data base
+Data Time:5/16/2018 4:00:37 PM
+Action:trying to recall the last 20 messages form the data base

@@ -12,7 +12,7 @@ namespace persistent_layer.Data_type
        public string UserName;
        public DateTime Data;
        public string MessageContent;
-        public string grupid;
+       public string grupid;
        
 
         public Message(Guid Id, string UserName, DateTime Data, string MessageContent,string gid) {

@@ -20,6 +20,10 @@ namespace Business_layer.Login_out
             //LOG 
             logging_activety.logging_msg("registration action with new user " + user.Get_Nick_Name() + " and a ID Group " + user.Get_ID());
             //Data_Base.LoaduserData();
+
+            //loging activety 
+            logging_activety.logging_msg("loding Users from the data base");
+
             userList = Data_Base.LoaduserData();
             //check if the user allready exest in the data base
             if (userList != null)
@@ -30,23 +34,21 @@ namespace Business_layer.Login_out
                     {
                         return null;
                     }
-<<<<<<< HEAD
-                    if (x.Get_ID() == user.Get_ID())
-                    {
-                        return x;
-                    }
-=======
                    /* if (x.Get_ID() == user.Get_ID())
                     {
                         return x;
                     }*/
->>>>>>> Presentaion_Layer
 
                 }
+            }
+            else
+            {
+                logging_activety.logging_msg("list is empty no users in data base");
             }
 
             // add to the user file 
             //userList.Insert(0, user);
+            logging_activety.logging_msg("update the user list with new user");
             userList.Add(user);
             Data_Base.saveuserdata(userList);
             //return repeseting number as a replay

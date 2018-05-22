@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="communication\Retrieve.cs" />
     <Compile Include="communication\send_reseve_Massge.cs" />
+    <Compile Include="Filter_sort\FilterAndSort.cs" />
     <Compile Include="logging_activety.cs" />
     <Compile Include="Login_out\Login.cs" />
     <Compile Include="Login_out\register.cs" />
@@ -57,5 +58,6 @@
       <Name>persistent_layer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

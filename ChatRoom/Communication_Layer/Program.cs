@@ -10,10 +10,12 @@ namespace Communication_Layer
     {
         static void Main(string[] args)
         {
+
             string gourpID = "27";
             string nickName = "shadi";
             string messageContent = "just testing ;)";
             string url = "http://ise172.ise.bgu.ac.il";  // url: ip + port
+           
 
             /*
             IMessage msg = Communication.Instance.Send(url, gourpID, nickName, messageContent);

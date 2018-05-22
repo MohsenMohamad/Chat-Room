@@ -5,6 +5,7 @@ using persistent_layer.Data_type;
 using persistent_layer;
 using persistent_layer.logfile;
 
+
 namespace Business_layer.Login_out
 {
     public class login
@@ -14,6 +15,7 @@ namespace Business_layer.Login_out
         {
             //LOGGING
             logging_activety.logging_msg("login action with user name:" + user + " | Password: " + password);
+
             userList = Data_Base.LoaduserData();
             //check if the user allready exest in the data base
             foreach (User x in userList)
@@ -24,6 +26,10 @@ namespace Business_layer.Login_out
                 }
             }
             //return repeseting number as a replay
+
+            //loging activety 
+            logging_activety.logging_msg("user in not in the data base");
+
             return null;
         }
     }

@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Business_layer;
 using Business_layer.Login_out;
 using persistent_layer.Data_type;
 
@@ -27,23 +28,38 @@ namespace GUI
             InitializeComponent();
             Login_Screen();
         }
-
+       
         private void Button_Register_Click(object sender, RoutedEventArgs e)
         {
+            //loging the activety of the project 
+            logging_activety.logging_msg("rejester botton activate ");
+
+            //loging the activety of the project 
+            logging_activety.logging_msg("take the user and the password from the text box for rejester");
             String name = Text_Name.Text;
             String password = Box_Password.Password;
             String Id_tmp = Text_ID.Text;
             int id = Convert.ToInt32(Id_tmp);
             
             User user = new User(name, id, password);
+            //loging the activety of the project 
+            logging_activety.logging_msg("new instense of register");
             register temp = new register();
+
+            //loging the activety of the project 
+            logging_activety.logging_msg("check if the user is in the data base");
+
             User newuser = temp.newRegister(user);
 
             if (newuser == null)
             {
+                //loging the activety of the project 
+                logging_activety.logging_msg("user is already registered");
                 MessageBox.Show(" User is already registered , please try to login instead or register with different info!");
             }
-            else { 
+            else {
+                //loging the activety of the project 
+                logging_activety.logging_msg("new user |add to data base");
                 MessageBox.Show(" Done , Welcome to the family :)");
                 Clear_Fields();
                 Login_Screen();
@@ -56,18 +72,30 @@ namespace GUI
 
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
+            //loging the activety of the project 
+            logging_activety.logging_msg("button_login activate ");
+            //loging the activety of the project 
+            logging_activety.logging_msg("login attembt");
             String name = Text_Name.Text;
             String password = Box_Password.Password;
+            //loging the activety of the project 
+            logging_activety.logging_msg("new login instens");
             login temp = new login();
+            //loging the activety of the project 
+            logging_activety.logging_msg("check user in the data base");
             User user = temp.Login(name, password);
             
            
             if (user == null)
             {
+                //loging the activety of the project 
+                logging_activety.logging_msg("user is not in the data base|show message to the -user not found-");
                 MessageBox.Show("User not found!");
             }
             else
             {
+                //loging the activety of the project 
+                logging_activety.logging_msg("user found | enter to login window");
                 Chat chatroom = new Chat(user);
                 this.Close();
                 chatroom.Show();
@@ -76,7 +104,11 @@ namespace GUI
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
+            //loging the activety of the project 
+            logging_activety.logging_msg("back button activat");
             Clear_Fields();
+            //loging the activety of the project 
+            logging_activety.logging_msg("return to singin window");
             Button_Login.Visibility = Visibility.Visible;
             Login_Screen();
         }
@@ -117,6 +149,8 @@ namespace GUI
 
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
+            //loging the activety of the project 
+            logging_activety.logging_msg("Exit from window ");
             this.Close();
         }
 

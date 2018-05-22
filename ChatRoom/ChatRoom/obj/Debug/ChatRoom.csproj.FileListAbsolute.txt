@@ -27,3 +27,22 @@ C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\ob
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csproj.CopyComplete
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.exe
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.pdb
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\ChatRoom.exe.config
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\ChatRoom.exe
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\ChatRoom.pdb
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Business_layer.dll
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Communication_Layer.dll
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Newtonsoft.Json.dll
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\persistent_layer.dll
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Presentation_Layer.exe
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Business_layer.pdb
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Communication_Layer.pdb
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\persistent_layer.pdb
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Presentation_Layer.pdb
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Presentation_Layer.exe.config
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\bin\Debug\Newtonsoft.Json.xml
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csprojResolveAssemblyReference.cache
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csproj.CoreCompileInputs.cache
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.csproj.CopyComplete
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.exe
+C:\Users\adnan\Desktop\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\ChatRoom\obj\Debug\ChatRoom.pdb
