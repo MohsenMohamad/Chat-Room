@@ -158,3 +158,14 @@ C:\Users\jamil\Desktop\backup\backup\Introduction To Software Engineering\-ISE17
 C:\Users\jamil\Desktop\backup\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.dll
 C:\Users\jamil\Desktop\backup\backup\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.pdb
 C:\Users\Mobile Station\Documents\chat room\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csprojAssemblyReference.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\persistent_layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\persistent_layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Communication_Layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Communication_Layer.pdb
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csprojResolveAssemblyReference.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csproj.CoreCompileInputs.cache
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csproj.CopyComplete
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.dll
+C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.pdb

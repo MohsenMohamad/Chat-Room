@@ -39,8 +39,7 @@ namespace GUI
             timer.Interval = TimeSpan.FromSeconds(2);
             timer.Tick += Button_Filter_Sort_Click;/*update;*/
             timer.Start();
-            //Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
-            //update(Message_List);
+            
 
         }
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
@@ -67,7 +66,7 @@ namespace GUI
             {
                 {
                     _main.Messages.Add((String)("id:" + x.grupid + "  " + x.UserName + ":  " + x.MessageContent + "   Time:" + x.Data ));
-                    //Block_Messages.Inlines.Add("id:" + x.grupid + "  " + x.UserName + ":  " + x.MessageContent + "   Time:" + x.Data + "\r");
+                    
                     if (!(Combo_Id.Items.Contains(x.grupid)))
                     {
                         Combo_Id.Items.Add(x.grupid);
@@ -113,38 +112,23 @@ namespace GUI
             mes = _main.MessageContent;
             //loging the activety of the project 
             logging_activety.logging_msg("message text check...");
-            if (mes.Length > 150 | mes.Length < 1)
-            {
-                //loging the activety of the project 
-                logging_activety.logging_msg("ERROR ==========message is too longe or empty");
-                MessageBox.Show("Please send a message that's not shorter than 1 and not longer than 150  ");
-            }
-            else
-            {
-                //loging the activety of the project 
-                logging_activety.logging_msg("send message by user");
-                _main.Messages.Add("id:" + userlogin.GroupID + "  " + userlogin.Name + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
-                _main.MessageContent = "";
-                temp.Send(userlogin.Get_Nick_Name(), userlogin.Get_ID(), mes);
-            }
-            //_main.Messages.Add(_main.MessageContent);
-            //_main.MessageContent = "";
-           // Text_Message.Clear();
+            if (!Legal_Message(mes))
+                return;
+            
+            logging_activety.logging_msg("send message by user"); // Log
+            _main.Messages.Add("id:" + userlogin.GroupID + "  " + userlogin.Name + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
+            _main.MessageContent = "";
+            temp.Send(userlogin.Get_Nick_Name(), userlogin.Get_ID(), mes);
+            
         }
 
 
         private void Button_Filter_Sort_Click(object sender, EventArgs  e)
-        {
-            //loging the activety of the project 
-            logging_activety.logging_msg("activat filter");
-            //if (timer.IsEnabled)
-            //    timer.Stop();
-            //else
-            //  timer.Start();
+        { 
+            logging_activety.logging_msg("activat filter"); // Log
             Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
             Message_List = Business_layer.communication.Retrieve.pullallMassages();
-            //loging the activety of the project 
-            logging_activety.logging_msg("pul new filter instens");
+            logging_activety.logging_msg("pul new filter instens"); // Log
             FilterAndSort tmp = new FilterAndSort();
             //loging the activety of the project 
             logging_activety.logging_msg("filter Identefing");
@@ -178,11 +162,6 @@ namespace GUI
                 }
             }
 
-            //Block_Messages.Text = String.Empty;
-            //foreach (Message x in Message_List)
-            //{
-            //    Block_Messages.Inlines.Add("id:" + x.grupid + "  " + x.UserName + ":  " + x.MessageContent + "   Time:" + x.Data + "\r");
-            //}
             update(Filtered_Message_List);
 
         }
@@ -196,7 +175,18 @@ namespace GUI
             return (id.Substring(id.IndexOf(",")+1, id.IndexOf(">")-id.IndexOf(",") - 1));
         }
 
-        
+        // checks if the typed message is not longer than 100 words.
+        private bool Legal_Message(String message)
+        {
+            if (message == null || message.Length > 100)
+            {
+                logging_activety.logging_msg("ERROR ==========message is too longe or empty");
+            MessageBox.Show("Please send a message that's not shorter than 1 and not longer than 100 ");
+            return false;
+            }
+
+            return true;
+        }
 
     }
 }

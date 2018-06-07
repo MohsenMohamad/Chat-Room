@@ -15,6 +15,8 @@ using System.Windows.Shapes;
 using Business_layer;
 using Business_layer.Login_out;
 using persistent_layer.Data_type;
+using System.Text.RegularExpressions;
+
 
 namespace GUI
 {
@@ -31,40 +33,34 @@ namespace GUI
        
         private void Button_Register_Click(object sender, RoutedEventArgs e)
         {
-            //loging the activety of the project 
-            logging_activety.logging_msg("rejester botton activate ");
-
-            //loging the activety of the project 
-            logging_activety.logging_msg("take the user and the password from the text box for rejester");
+             
+            logging_activety.logging_msg("register botton activate "); // Log
             String name = Text_Name.Text;
             String password = Box_Password.Password;
-            String Id_tmp = Text_ID.Text;
-            int id = Convert.ToInt32(Id_tmp);
-            
+            String Id = Text_ID.Text;
+            int id = 0;
+            if(!Legal_ID(Id) || !Legal_Password(password))
+                    return;
+
             User user = new User(name, id, password);
-            //loging the activety of the project 
-            logging_activety.logging_msg("new instense of register");
+            logging_activety.logging_msg("new instense of register"); // Log
             register temp = new register();
 
-            //loging the activety of the project 
-            logging_activety.logging_msg("check if the user is in the data base");
-
+            logging_activety.logging_msg("check if the user is in the data base"); // Log
             User newuser = temp.newRegister(user);
 
             if (newuser == null)
-            {
-                //loging the activety of the project 
-                logging_activety.logging_msg("user is already registered");
+            { 
+                logging_activety.logging_msg("user is already registered"); // Log
                 MessageBox.Show(" User is already registered , please try to login instead or register with different info!");
             }
             else {
-                //loging the activety of the project 
-                logging_activety.logging_msg("new user |add to data base");
-                MessageBox.Show(" Done , Welcome to the family :)");
-                Clear_Fields();
-                Login_Screen();
-                Button_Register.Visibility = Visibility.Hidden;
-                Button_Login.Visibility = Visibility.Visible;
+                    logging_activety.logging_msg("new user |add to data base"); // Log
+                    MessageBox.Show(" Done , Welcome to the family :)");
+                    Clear_Fields();
+                    Login_Screen();
+                    Button_Register.Visibility = Visibility.Hidden;
+                    Button_Login.Visibility = Visibility.Visible;
 
 
                 }
@@ -72,30 +68,22 @@ namespace GUI
 
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
-            //loging the activety of the project 
-            logging_activety.logging_msg("button_login activate ");
-            //loging the activety of the project 
-            logging_activety.logging_msg("login attembt");
+             
+            logging_activety.logging_msg("login attempt"); // Log
             String name = Text_Name.Text;
             String password = Box_Password.Password;
-            //loging the activety of the project 
-            logging_activety.logging_msg("new login instens");
             login temp = new login();
-            //loging the activety of the project 
-            logging_activety.logging_msg("check user in the data base");
+            logging_activety.logging_msg("check user in the data base"); // Log
             User user = temp.Login(name, password);
-            
            
             if (user == null)
             {
-                //loging the activety of the project 
-                logging_activety.logging_msg("user is not in the data base|show message to the -user not found-");
+                logging_activety.logging_msg("user is not in the data base"); // Log
                 MessageBox.Show("User not found!");
             }
             else
-            {
-                //loging the activety of the project 
-                logging_activety.logging_msg("user found | enter to login window");
+            { 
+                logging_activety.logging_msg("user found | enter to login window"); // Log
                 Chat chatroom = new Chat(user);
                 this.Close();
                 chatroom.Show();
@@ -104,11 +92,8 @@ namespace GUI
 
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
-            //loging the activety of the project 
-            logging_activety.logging_msg("back button activat");
-            Clear_Fields();
-            //loging the activety of the project 
-            logging_activety.logging_msg("return to singin window");
+            Clear_Fields(); 
+            logging_activety.logging_msg("User returned to Log-in window"); // Log
             Button_Login.Visibility = Visibility.Visible;
             Login_Screen();
         }
@@ -149,17 +134,40 @@ namespace GUI
 
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
-            //loging the activety of the project 
-            logging_activety.logging_msg("Exit from window ");
+            logging_activety.logging_msg("App closed"); // Log
             this.Close();
         }
 
 
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        private bool Legal_Password(String password)
         {
-            
+            if (password!=null && ( password.Length < 4 || password.Length > 16 || !Regex.IsMatch(password, @"^[a-zA-Z0-9]+$")))
+            {
+                MessageBox.Show("Illegal Password");
+                return false;
+            }
+
+            return true;
         }
 
-        
+
+        // checks if the id input is a positive integer
+        private bool Legal_ID(String id)
+        {
+            try
+            {
+                return Convert.ToInt32(id)>0;
+            }
+            catch
+            {
+                MessageBox.Show("Illegal ID!");
+                return false;
+            }
+        }
+
+        private void CheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
