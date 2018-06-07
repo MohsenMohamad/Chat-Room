@@ -30,6 +30,8 @@ namespace GUI
         private List<Message> Message_List;
         private List<Message> Filtered_Message_List;
         DispatcherTimer timer = new DispatcherTimer();
+
+        //Creates the windows' display
         public Chat(User userlogin)
         {
 
@@ -40,8 +42,9 @@ namespace GUI
             timer.Tick += Button_Filter_Sort_Click;/*update;*/
             timer.Start();
             
-
         }
+
+
         private void TextBox_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
@@ -53,15 +56,14 @@ namespace GUI
             }
         }
         
-        private void update(List<Message> Message_List/*object sender, EventArgs e*/)
+        //updates the 
+        private void update(List<Message> Message_List)
         {
 
             //Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
             // updates the Filtered_Message_List using current filter and sort , so that the textblock text will be binded to it
-            //.Text = String.Empty;
-            _main.Messages.Clear();
-            //loging the activety of the project 
-            logging_activety.logging_msg("message update for every 2 sec");
+            _main.Messages.Clear(); 
+            logging_activety.logging_msg("Updating the interface..."); // Log
             foreach (Message x in Message_List)
             {
                 {
@@ -80,49 +82,46 @@ namespace GUI
            
         }
 
+        // Closes the chat window and opens a main window
         private void Button_Logout_Click(object sender, RoutedEventArgs e)
         {
-            //loging the activety of the project 
-            logging_activety.logging_msg("send to singin window");
+            logging_activety.logging_msg("User Logged-out"); // Log
             MainWindow main = new MainWindow();
             main.Show();
             this.Close();
         }
 
-
-
+        // Closes the application
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
-        {
-            //loging the activety of the project 
-            logging_activety.logging_msg("Exit from the app");
+        { 
+            logging_activety.logging_msg("App closed"); // Log
             MessageBox.Show("See you soon!");
             Application.Current.Shutdown();
 
         }
 
-
+        // Checks if the input message is legal and then sends it
         private void Button_Send_Click(object sender, RoutedEventArgs e)
-        {
-            //loging the activety of the project 
-            logging_activety.logging_msg("send button activat");
+        { 
+            logging_activety.logging_msg("send button activat"); // Log
             TextBox box = sender as TextBox;
 
             send_reseve_Massge temp = new send_reseve_Massge();
             String mes;
             mes = _main.MessageContent;
             //loging the activety of the project 
-            logging_activety.logging_msg("message text check...");
+            logging_activety.logging_msg("Message sending attempt...");
             if (!Legal_Message(mes))
                 return;
             
-            logging_activety.logging_msg("send message by user"); // Log
+            logging_activety.logging_msg("The message was sent successfully"); // Log
             _main.Messages.Add("id:" + userlogin.GroupID + "  " + userlogin.Name + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
             temp.Send(userlogin.Get_Nick_Name(), userlogin.Get_ID(), mes);
             
         }
 
-
+        // Changes the messages interface by the user's choice
         private void Button_Filter_Sort_Click(object sender, EventArgs  e)
         { 
             logging_activety.logging_msg("activat filter"); // Log
@@ -130,16 +129,13 @@ namespace GUI
             Message_List = Business_layer.communication.Retrieve.pullallMassages();
             logging_activety.logging_msg("pul new filter instens"); // Log
             FilterAndSort tmp = new FilterAndSort();
-            //loging the activety of the project 
-            logging_activety.logging_msg("filter Identefing");
+            logging_activety.logging_msg("filter Identefing"); // Log
             if (RadioButton1.IsChecked==true)
             {
-                //loging the activety of the project 
-                logging_activety.logging_msg("sort and filter message list");
+                logging_activety.logging_msg("sort and filter message list"); // Log
                 if (!(Combo_Filter.Text.Equals("user")))
                 {
-                    //loging the activety of the project 
-                    logging_activety.logging_msg("send filter paremeter to filter fun");
+                    logging_activety.logging_msg("send filter paremeter to filter fun"); // Log
                     Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Filter.Text, Combo_Id.Text, "", Combo_Sort.Text, true);
                 }
                 if (Combo_Filter.Text.Equals("user") & (!(Combo_User.SelectedItem == null)))
@@ -150,8 +146,7 @@ namespace GUI
 
             if (RadioButton2.IsChecked == true)
             {
-                //loging the activety of the project 
-                logging_activety.logging_msg("sort and filter");
+                logging_activety.logging_msg("sort and filter"); // Log
                 if (!(Combo_Filter.Text.Equals("user")))
                 {
                     Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Filter.Text, Combo_Id.Text, "", Combo_Sort.Text, false);
@@ -165,24 +160,28 @@ namespace GUI
             update(Filtered_Message_List);
 
         }
+
+        //
         public string iduser(string id) {
             
                 return (id.Substring(1, id.IndexOf(",") - 1));
             
         }
+
+        //
         public string nameuser(string id)
         {
             return (id.Substring(id.IndexOf(",")+1, id.IndexOf(">")-id.IndexOf(",") - 1));
         }
 
-        // checks if the typed message is not longer than 100 words.
+        // Checks if the typed message is not longer than 100 words.
         private bool Legal_Message(String message)
         {
             if (message == null || message.Length > 100)
             {
                 logging_activety.logging_msg("ERROR ==========message is too longe or empty");
-            MessageBox.Show("Please send a message that's not shorter than 1 and not longer than 100 ");
-            return false;
+                MessageBox.Show("Please send a message that's not shorter than 1 and not longer than 100 ");
+                return false;
             }
 
             return true;

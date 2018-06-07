@@ -30,7 +30,9 @@ namespace GUI
             InitializeComponent();
             Login_Screen();
         }
-       
+        
+        // Checks if all the required info for registeration is legal
+        // Register the User if and only if every field is legal.
         private void Button_Register_Click(object sender, RoutedEventArgs e)
         {
              
@@ -42,6 +44,7 @@ namespace GUI
             if(!Legal_ID(Id) || !Legal_Password(password))
                     return;
 
+            id = Convert.ToInt32(Id);
             User user = new User(name, id, password);
             logging_activety.logging_msg("new instense of register"); // Log
             register temp = new register();
@@ -66,6 +69,7 @@ namespace GUI
                 }
         }
 
+        // If the User info are correct open a new chat window
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
              
@@ -90,6 +94,7 @@ namespace GUI
             }
         }
 
+        // Cancels the registeration and sends the User back to the Log-in Screen.
         private void Button_Back_Click(object sender, RoutedEventArgs e)
         {
             Clear_Fields(); 
@@ -98,6 +103,7 @@ namespace GUI
             Login_Screen();
         }
 
+        
         private void Register_Screen_Click(object sender, RoutedEventArgs e)
         {
             Register_Screen();
