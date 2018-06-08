@@ -10,26 +10,35 @@ namespace Business_layer.Login_out
 {
     public class register
     {
-        
-        public User newRegister(User user)
-        {
-            
-            
-            logging_activety.logging_msg("Registration attempt"); // Log
 
+        private hashing toHash = new hashing();
+        public bool newRegister(String name , String password , String groupID)
+        {
 
             //checks if the user already exists in the data base
-            logging_activety.logging_msg("Registration Failed : User already exists"); // Log
+
+            String hashed_Password = hashing.GetHashString(password);
+
+            SQL_User temp = new SQL_User();
+            bool added = temp.RegisterUser(name, hashed_Password, groupID);
+            if (added)
+            {
+                logging_activety.logging_msg("Registering was done successfuly"); // Log
+                return true;
+            }
+            else
+            {
+                logging_activety.logging_msg("Registration Failed : User already exists"); // Log
+                return false;
+            }
+            
 
 
 
 
 
             // Asks the Data Access Layer to add the user to the database 
-            logging_activety.logging_msg("Registering was done successfuly"); // Log
             
-            //return repeseting number as a replay
-            return user;
         }
         
         public static int Logout()

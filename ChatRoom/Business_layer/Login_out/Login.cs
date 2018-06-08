@@ -13,21 +13,28 @@ namespace Business_layer.Login_out
         
         private hashing toHash= new hashing();
 
-        public User Login(string user, string password)
+        public User Login(string name , string password)
         {
 
             logging_activety.logging_msg("login attempt"); // Log
+            SQL_User temp = new SQL_User();
             String hashed_Password = hashing.GetHashString(password);
+            int id = temp.LoginUser(name, password);
 
-            //check if the user already exists in the database
+            if (id == -1)
+            {
+                logging_activety.logging_msg("user is not in the data base"); // Log
+                return null;
+            }
+            else
+            {
+                logging_activety.logging_msg("user found | enter to login window"); // Log
+                User user = new User(name, password, 0 , id);
 
-            // if found return the user (with the normal password)
-            logging_activety.logging_msg("user found | enter to login window"); // Log
+                return user;
 
-            // if not found return null
-            logging_activety.logging_msg("user is not in the data base"); // Log
-
-            return null;
+            }
+            
         }
     }
 }

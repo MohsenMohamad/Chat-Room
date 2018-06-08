@@ -41,14 +41,14 @@ namespace GUI
             String password = Box_Password.Password;
             String Id = Text_ID.Text;
             int id = 0;
+
             if (!Legal_ID(Id) || !Legal_Password(password))
                 return;
 
             id = Convert.ToInt32(Id);
-            User user = new User(name, id, password);
-            User newuser = temp.newRegister(user);
+            bool successfull = temp.newRegister(name,password,Id);
 
-            if (newuser == null)
+            if (!successfull)
                 MessageBox.Show(" User is already registered , please try to login instead or register with different info!");
             
             else {

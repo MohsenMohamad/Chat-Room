@@ -110,9 +110,9 @@ namespace GUI
             if (!Legal_Message(mes))
                     return;
             
-            _main.Messages.Add("id:" + userlogin.GroupID + "  " + userlogin.Name + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
+            _main.Messages.Add("id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
-            temp.Send(userlogin.Get_Nick_Name(), userlogin.Get_ID(), mes);
+            temp.Send(userlogin.getNickName(), userlogin.getID(), mes);
             logging_activety.logging_msg("The message was sent successfully"); // Log
 
         }
