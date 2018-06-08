@@ -23,7 +23,7 @@ namespace Business_layer.Login_out
 
             if (id == -1)
             {
-                logging_activety.logging_msg("user is not in the data base"); // Log
+                logging_activety.logging_msg("User is not in the data base"); // Log
                 return null;
             }
             else
