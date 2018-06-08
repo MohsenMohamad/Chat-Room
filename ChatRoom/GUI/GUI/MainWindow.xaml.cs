@@ -170,7 +170,14 @@ namespace GUI
                 return false;
             }
         }
+        private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
 
+        {
+
+        //    PasswordBox pb = sender as PasswordBox;
+        //      MessageBox.Show(pb.Password);
+
+        }
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 

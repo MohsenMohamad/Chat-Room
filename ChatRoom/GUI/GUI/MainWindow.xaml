@@ -12,7 +12,7 @@
         <Label x:Name="Label_ID" Content="Group ID :" HorizontalAlignment="Left" Margin="160,180,0,0" VerticalAlignment="Top" Foreground="White"/>
         <TextBox x:Name="Text_Name" HorizontalAlignment="Left" Height="32" Margin="205,73,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Background="#FF0056FF"/>
         <TextBox x:Name="Text_ID" HorizontalAlignment="Left" Height="32" Margin="205,206,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="248" Background="#FF0056FF"/>
-        <PasswordBox x:Name="Box_Password" HorizontalAlignment="Left" Margin="205,143,0,0" VerticalAlignment="Top" Width="248" Height="32" Background="#FF0056FF"/>
+        <PasswordBox x:Name="Box_Password" HorizontalAlignment="Left" Margin="205,143,0,0" VerticalAlignment="Top" Width="248" Height="32" PasswordChanged="PasswordBox_PasswordChanged" Background="#FF0056FF"/>
         <Button x:Name="Button_Back" Content="Back" HorizontalAlignment="Left" Margin="111,282,0,0" VerticalAlignment="Top" Width="75" IsCancel="True" Click="Button_Back_Click" Background="#FF0056FF"/>
         <Button x:Name="Button_Register" Content="Register" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" Width="75" Click="Button_Register_Click"/>
         <Button x:Name="Button_Login" Content="Log-In" HorizontalAlignment="Left" Margin="252,282,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="Button_Login_Click" Foreground="Black" Background="#FF0056FF"/>
