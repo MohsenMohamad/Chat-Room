@@ -9,36 +9,48 @@ namespace persistent_layer.Data_type
     [Serializable]
     public class User
     {
-        public string Name;//{ get; set; }
-        public string PassWord;//{ get; set; }
-        public int GroupID;// { get; set; }
-        public User(string name, int id, string password)
+        private string Name;
+        private string Password;
+        private int GroupID;
+        private int ID;
+        public User(String name, String password , int groupID , int id)
         {
             Name = name;
+            Password = password;
             GroupID = id;
-            PassWord = password;
+            ID = id;
 
         }
-        public string Get_Nick_Name()
+        public string getNickName()
         {
             return Name;
         }
-        public int Get_ID()
+        public int getGroupID()
         {
             return GroupID;
         }
+
+        public int getID()
+        {
+            return ID;
+        }
         public bool PassWordCheck(string check)
         {
-            if (check.Equals(PassWord))
+            if (check.Equals(Password))
             {
                 return true;
             }
             else
                 return false;
+        }
+
+        public String getPassword()
+        {
+            return Password;
         }
         public bool sameuser(User user)
         {
-            if (user.Get_Nick_Name().Equals(this.Get_Nick_Name())&(PassWordCheck(user.PassWord)))
+            if (user.getNickName().Equals(this.Name)&(PassWordCheck(user.getPassword())))
             {
                 return true;
             }
@@ -47,5 +59,6 @@ namespace persistent_layer.Data_type
                 return false;
             }
         }
+
     }
 }

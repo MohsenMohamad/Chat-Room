@@ -20,7 +20,7 @@ namespace Business_layer.communication
             logging_activety.logging_msg("pull all messages from data base");
             msgList = persistent_layer.Data_Base.loadmessageData();
             foreach (Message x in msgList) {
-                if (x.UserName == user.Name) {
+                if (x.UserName == user.getNickName()) {
                     newmsg.Add(x);
                 }
             }

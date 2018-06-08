@@ -44,6 +44,7 @@
     <Compile Include="communication\send_reseve_Massge.cs" />
     <Compile Include="Filter_sort\FilterAndSort.cs" />
     <Compile Include="logging_activety.cs" />
+    <Compile Include="Login_out\hashing.cs" />
     <Compile Include="Login_out\Login.cs" />
     <Compile Include="Login_out\register.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
