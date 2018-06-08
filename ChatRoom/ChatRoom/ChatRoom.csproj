@@ -65,10 +65,6 @@
       <Project>{941cb6d7-7fe7-4c0f-9ac5-0ea0441b1e32}</Project>
       <Name>persistent_layer</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Presentation_Layer\Presentation_Layer.csproj">
-      <Project>{a69cc45c-ee56-4039-99a4-8aa98a8e79f4}</Project>
-      <Name>Presentation_Layer</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
