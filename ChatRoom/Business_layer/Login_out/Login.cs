@@ -10,25 +10,22 @@ namespace Business_layer.Login_out
 {
     public class login
     {
-        private List<User> userList;
+        
+        private hashing toHash= new hashing();
+
         public User Login(string user, string password)
         {
-            //LOGGING
-            logging_activety.logging_msg("login action with user name:" + user + " | Password: " + password);
 
-            userList = Data_Base.LoaduserData();
-            //check if the user allready exest in the data base
-            foreach (User x in userList)
-            {
-                if (x.Get_Nick_Name().Equals(user)&x.PassWordCheck(password))
-                {
-                    return x;
-                }
-            }
-            //return repeseting number as a replay
+            logging_activety.logging_msg("login attempt"); // Log
+            String hashed_Password = hashing.GetHashString(password);
 
-            //loging activety 
-            logging_activety.logging_msg("user in not in the data base");
+            //check if the user already exists in the database
+
+            // if found return the user (with the normal password)
+            logging_activety.logging_msg("user found | enter to login window"); // Log
+
+            // if not found return null
+            logging_activety.logging_msg("user is not in the data base"); // Log
 
             return null;
         }

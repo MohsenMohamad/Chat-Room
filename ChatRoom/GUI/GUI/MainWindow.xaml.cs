@@ -35,36 +35,28 @@ namespace GUI
         // Register the User if and only if every field is legal.
         private void Button_Register_Click(object sender, RoutedEventArgs e)
         {
-             
-            logging_activety.logging_msg("register botton activate "); // Log
+            logging_activety.logging_msg("Registeration attempt"); // Log
+            register temp = new register();
             String name = Text_Name.Text;
             String password = Box_Password.Password;
             String Id = Text_ID.Text;
             int id = 0;
-            if(!Legal_ID(Id) || !Legal_Password(password))
-                    return;
+            if (!Legal_ID(Id) || !Legal_Password(password))
+                return;
 
             id = Convert.ToInt32(Id);
             User user = new User(name, id, password);
-            logging_activety.logging_msg("new instense of register"); // Log
-            register temp = new register();
-
-            logging_activety.logging_msg("check if the user is in the data base"); // Log
             User newuser = temp.newRegister(user);
 
             if (newuser == null)
-            { 
-                logging_activety.logging_msg("user is already registered"); // Log
                 MessageBox.Show(" User is already registered , please try to login instead or register with different info!");
-            }
+            
             else {
-                    logging_activety.logging_msg("new user |add to data base"); // Log
                     MessageBox.Show(" Done , Welcome to the family :)");
                     Clear_Fields();
                     Login_Screen();
                     Button_Register.Visibility = Visibility.Hidden;
                     Button_Login.Visibility = Visibility.Visible;
-
 
                 }
         }
@@ -73,21 +65,16 @@ namespace GUI
         private void Button_Login_Click(object sender, RoutedEventArgs e)
         {
              
-            logging_activety.logging_msg("login attempt"); // Log
             String name = Text_Name.Text;
             String password = Box_Password.Password;
             login temp = new login();
-            logging_activety.logging_msg("check user in the data base"); // Log
             User user = temp.Login(name, password);
            
             if (user == null)
-            {
-                logging_activety.logging_msg("user is not in the data base"); // Log
                 MessageBox.Show("User not found!");
-            }
+            
             else
             { 
-                logging_activety.logging_msg("user found | enter to login window"); // Log
                 Chat chatroom = new Chat(user);
                 this.Close();
                 chatroom.Show();
@@ -103,12 +90,14 @@ namespace GUI
             Login_Screen();
         }
 
-        
+        //
         private void Register_Screen_Click(object sender, RoutedEventArgs e)
         {
+            logging_activety.logging_msg("User moved to the registeration screen"); // Log
             Register_Screen();
         }
 
+        //
         private void Register_Screen()
         {
 
@@ -122,6 +111,7 @@ namespace GUI
 
         }
 
+        //
         private void Login_Screen()
         {
             Button_registerScreen.Visibility = Visibility.Visible;
@@ -130,6 +120,7 @@ namespace GUI
             Button_Back.Visibility = Visibility.Hidden;
         }
 
+        //
         private void Clear_Fields()
         {
             Text_Name.Text = String.Empty;
@@ -138,17 +129,19 @@ namespace GUI
 
         }
 
+        //
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
             logging_activety.logging_msg("App closed"); // Log
             this.Close();
         }
 
-
+        //
         private bool Legal_Password(String password)
         {
             if (password!=null && ( password.Length < 4 || password.Length > 16 || !Regex.IsMatch(password, @"^[a-zA-Z0-9]+$")))
             {
+                logging_activety.logging_msg("Registeration Failed! , Illegal Password "); // Log
                 MessageBox.Show("Illegal Password");
                 return false;
             }
@@ -166,10 +159,13 @@ namespace GUI
             }
             catch
             {
+                logging_activety.logging_msg("Registeration Failed! , Illegal ID "); // Log
                 MessageBox.Show("Illegal ID!");
                 return false;
             }
         }
+
+        //
         private void PasswordBox_PasswordChanged(object sender, RoutedEventArgs e)
 
         {
@@ -178,6 +174,8 @@ namespace GUI
         //      MessageBox.Show(pb.Password);
 
         }
+
+        //
         private void CheckBox_Checked(object sender, RoutedEventArgs e)
         {
 

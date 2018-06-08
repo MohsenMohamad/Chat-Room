@@ -103,22 +103,18 @@ namespace GUI
         // Checks if the input message is legal and then sends it
         private void Button_Send_Click(object sender, RoutedEventArgs e)
         { 
-            logging_activety.logging_msg("send button activat"); // Log
             TextBox box = sender as TextBox;
-
             send_reseve_Massge temp = new send_reseve_Massge();
-            String mes;
-            mes = _main.MessageContent;
-            //loging the activety of the project 
-            logging_activety.logging_msg("Message sending attempt...");
+            String mes = _main.MessageContent; 
+            logging_activety.logging_msg("Message sending attempt..."); // Log
             if (!Legal_Message(mes))
-                return;
+                    return;
             
-            logging_activety.logging_msg("The message was sent successfully"); // Log
             _main.Messages.Add("id:" + userlogin.GroupID + "  " + userlogin.Name + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
             temp.Send(userlogin.Get_Nick_Name(), userlogin.Get_ID(), mes);
-            
+            logging_activety.logging_msg("The message was sent successfully"); // Log
+
         }
 
         // Changes the messages interface by the user's choice
@@ -174,12 +170,12 @@ namespace GUI
             return (id.Substring(id.IndexOf(",")+1, id.IndexOf(">")-id.IndexOf(",") - 1));
         }
 
-        // Checks if the typed message is not longer than 100 words.
+        // Checks if the typed message is not longer than 100 Chars.
         private bool Legal_Message(String message)
         {
             if (message == null || message.Length > 100)
             {
-                logging_activety.logging_msg("ERROR ==========message is too longe or empty");
+                logging_activety.logging_msg("ERROR ==========message is too long or empty"); // Log
                 MessageBox.Show("Please send a message that's not shorter than 1 and not longer than 100 ");
                 return false;
             }
