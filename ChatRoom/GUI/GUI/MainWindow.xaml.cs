@@ -42,7 +42,7 @@ namespace GUI
             String Id = Text_ID.Text;
             int id = 0;
 
-            if (!Legal_ID(Id) || !Legal_Password(password))
+            if (!Legal_ID(Id) || !Legal_Name(name) ||!Legal_Password(password))
                 return;
 
             id = Convert.ToInt32(Id);
@@ -67,8 +67,10 @@ namespace GUI
              
             String name = Text_Name.Text;
             String password = Box_Password.Password;
+            String groupID = Text_ID.Text;
             login temp = new login();
-            User user = temp.Login(name, password);
+            // may add an if statement that checks if the inputs are all legal
+            User user = temp.Login( name, password , groupID );
            
             if (user == null)
                 MessageBox.Show("User not found!");
@@ -105,8 +107,8 @@ namespace GUI
             Button_Register.Visibility = Visibility.Visible;
             Button_Login.Visibility = Visibility.Hidden;
             Button_registerScreen.Visibility = Visibility.Hidden;
-            Label_ID.Visibility = Visibility.Visible;
-            Text_ID.Visibility = Visibility.Visible;
+     //       Label_ID.Visibility = Visibility.Visible;
+    //        Text_ID.Visibility = Visibility.Visible;
             Button_Back.Visibility = Visibility.Visible;
 
         }
@@ -115,8 +117,8 @@ namespace GUI
         private void Login_Screen()
         {
             Button_registerScreen.Visibility = Visibility.Visible;
-            Label_ID.Visibility = Visibility.Hidden;
-            Text_ID.Visibility = Visibility.Hidden;
+    //      Label_ID.Visibility = Visibility.Hidden;
+    //      Text_ID.Visibility = Visibility.Hidden;
             Button_Back.Visibility = Visibility.Hidden;
         }
 
@@ -163,6 +165,17 @@ namespace GUI
                 MessageBox.Show("Illegal ID!");
                 return false;
             }
+        }
+
+        private bool Legal_Name(String name)
+        {
+            if(name==null || name.Length > 10)
+            {
+                logging_activety.logging_msg("Registeration Failed! , Illegal Name "); // Log
+                MessageBox.Show("Illegal Name!");
+                return false;
+            }
+            return true;
         }
 
         //

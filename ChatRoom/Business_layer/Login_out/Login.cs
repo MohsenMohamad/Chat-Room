@@ -13,13 +13,13 @@ namespace Business_layer.Login_out
         
         private hashing toHash= new hashing();
 
-        public User Login(string name , string password)
+        public User Login(String name , String password , String groupID)
         {
 
             logging_activety.logging_msg("login attempt"); // Log
             SQL_User temp = new SQL_User();
             String hashed_Password = hashing.GetHashString(password);
-            int id = temp.LoginUser(name, password);
+            int id = temp.LoginUser(name, password , groupID);
 
             if (id == -1)
             {
@@ -29,7 +29,7 @@ namespace Business_layer.Login_out
             else
             {
                 logging_activety.logging_msg("user found | enter to login window"); // Log
-                User user = new User(name, password, 0 , id);
+                User user = new User(name, password, Convert.ToInt32(groupID) , id );
 
                 return user;
 
