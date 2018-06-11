@@ -9,27 +9,18 @@ namespace persistent_layer.SQL
 {
     public class SQL_User
     {
-        private string connetion_string;
-        private string sql_query;
-        private string server_address;
-        private string database_name;
-        private string user_name;
-        private string password;
-
-        private SqlConnection connection;
-        private SqlCommand command;
+        string connetion_string = null;
+        string sql_query = null;
+        string server_address = "ise172.ise.bgu.ac.il,1433\\DB_LAB";
+        string database_name = "MS3";
+        string user_name = "publicUser";
+        string password = "isANerd";
         private SqlDataReader data_reader;
+        SqlConnection connection;
+        SqlCommand command;
         public SQL_User()
         {
-            string connetion_string = null;
-            string sql_query = null;
-            string server_address = "ise172.ise.bgu.ac.il,1433\\DB_LAB";
-            string database_name = "MS3";
-            string user_name = "publicUser";
-            string password = "isANerd";
 
-            SqlConnection connection;
-            SqlCommand command;
 
             connetion_string = $"Data Source={server_address};Initial Catalog={database_name };User ID={user_name};Password={password}";
             connection = new SqlConnection(connetion_string);
