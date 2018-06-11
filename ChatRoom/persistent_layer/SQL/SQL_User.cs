@@ -47,7 +47,7 @@ namespace persistent_layer.SQL
             }
             catch (Exception ex)
             {
-                return ("Cant connect to database");
+                return ("-2");
             }
             
         }

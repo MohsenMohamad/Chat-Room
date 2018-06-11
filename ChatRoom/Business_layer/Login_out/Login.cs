@@ -28,6 +28,12 @@ namespace Business_layer.Login_out
                 logging_activety.logging_msg("User is not in the data base"); // Log
                 return null;
             }
+
+            if( id == -2)
+            {
+                logging_activety.logging_msg("Could not connect to the database"); // Log
+                return new User(null,null,-1,id);
+            }
             else
             {
                 logging_activety.logging_msg("user found | enter to login window"); // Log

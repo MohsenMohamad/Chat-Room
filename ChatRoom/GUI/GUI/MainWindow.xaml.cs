@@ -71,8 +71,11 @@ namespace GUI
             login temp = new login();
             // may add an if statement that checks if the inputs are all legal
             User user = temp.Login( name, password , groupID );
-           
-            if (user == null)
+            
+
+            if(user.getID()==-2)
+                MessageBox.Show("Could not connect to the database!");
+            else if (user == null)
                 MessageBox.Show("User not found!");
             
             else
