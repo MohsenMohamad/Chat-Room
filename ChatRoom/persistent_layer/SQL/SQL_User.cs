@@ -34,7 +34,7 @@ namespace persistent_layer.SQL
             connetion_string = $"Data Source={server_address};Initial Catalog={database_name };User ID={user_name};Password={password}";
             connection = new SqlConnection(connetion_string);
         }
-        public String Exists(String Group_Id, String Name, String Password)
+        public String Exists(String userName, String userPassword , String GroupID)
         {
             try
             {
@@ -44,10 +44,10 @@ namespace persistent_layer.SQL
                 data_reader = command.ExecuteReader();
                 while (data_reader.Read())
                 {
-                    if (Group_Id.Equals(data_reader.GetValue(1) + "") && Name.Equals((data_reader.GetValue(2) + "").Trim()) && password.Equals(data_reader.GetValue(3) + ""))
-                    {
-                        return ((data_reader.GetValue(0)+ "").Trim());
-                    }
+                    if (GroupID.Equals((data_reader.GetValue(1) + "").Trim()) && userName.Equals((data_reader.GetValue(2) + "").Trim()) && userPassword.Equals((data_reader.GetValue(3) + "").Trim()))
+                        return ((data_reader.GetValue(0) + "").Trim());
+                        
+                    
                 }
                 data_reader.Close();
                 command.Dispose();
@@ -56,12 +56,15 @@ namespace persistent_layer.SQL
             }
             catch (Exception ex)
             {
-                return (ex.ToString());
+                return ("Cant connect to database");
             }
             
         }
-        public int LoginUser(String Name, String Group_Id, String Password) {
-            return (Convert.ToInt32((Exists(Group_Id, Name, Password))));
+        public int LoginUser(String userName, String userPassword, String groupID) {
+
+            int id = Convert.ToInt32(Exists(userName, userPassword, groupID));
+            return id;
+            
         }
         public Boolean RegisterUser(String name, String password, String groupID) {
             return true;
