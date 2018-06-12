@@ -43,5 +43,10 @@ namespace persistent_layer.Data_type
         {
             return content;
         }
+
+        public User getUser()
+        {
+            return sender;
+        }
     }
 }

@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 using System.Data;
+using persistent_layer.Data_type;
 
 namespace persistent_layer.SQL
 {
@@ -21,12 +22,10 @@ namespace persistent_layer.SQL
         SqlCommand command;
         public SQL_User()
         {
-
-
             connetion_string = $"Data Source={server_address};Initial Catalog={database_name };User ID={user_name};Password={password}";
             connection = new SqlConnection(connetion_string);
         }
-        public String Exists(String userName, String userPassword , String GroupID)
+        public String Exists(String userName, String userPassword, String GroupID)
         {
             try
             {
@@ -38,8 +37,8 @@ namespace persistent_layer.SQL
                 {
                     if (GroupID.Equals((data_reader.GetValue(1) + "").Trim()) && userName.Equals((data_reader.GetValue(2) + "").Trim()) && userPassword.Equals((data_reader.GetValue(3) + "").Trim()))
                         return ((data_reader.GetValue(0) + "").Trim());
-                        
-                    
+
+
                 }
                 data_reader.Close();
                 command.Dispose();
@@ -50,17 +49,17 @@ namespace persistent_layer.SQL
             {
                 return ("-2");
             }
-            
+
         }
         public int LoginUser(String userName, String userPassword, String groupID) {
 
             int id = Convert.ToInt32(Exists(userName, userPassword, groupID));
             return id;
-            
+
         }
         public Boolean RegisterUser(String userName, String userPassword, String GroupID) {
-            
-                String checkId=Exists(userName, userPassword, GroupID);
+
+            String checkId = Exists(userName, userPassword, GroupID);
             if (checkId.Equals("-2")) {
                 return false;
             }
@@ -97,15 +96,37 @@ namespace persistent_layer.SQL
                 catch (Exception ex)
                 {
                     return false;
-
                 }
             }
             else
             {
                 return false;
             }
-       
-
+        }
+        public User returnuser(int userid){
+            try
+            {
+                connection.Open();
+                sql_query = "select * from [dbo].[Users];";
+                command = new SqlCommand(sql_query, connection);
+                data_reader = command.ExecuteReader();
+                while (data_reader.Read())
+                {
+                    if (userid.Equals((int)data_reader.GetValue(0)))
+                    {
+                        User user = new User((data_reader.GetValue(2) + "").Trim(),(data_reader.GetValue(3) + "").Trim(),((int)data_reader.GetValue(1)),userid);
+                        return user;
+                    }
+                }
+                data_reader.Close();
+                command.Dispose();
+                connection.Close();
+                return null;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
         }
     }
 }
