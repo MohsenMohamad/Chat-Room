@@ -54,23 +54,27 @@ namespace GUI
             // updates the Filtered_Message_List using current filter and sort , so that the textblock text will be binded to it
             _main.Messages.Clear(); 
             logging_activety.logging_msg("Updating the interface..."); // Log
-
+            int c = 0;
             foreach (Message x in Message_List)
             {
-
-                _main.Messages.Add((String)("id:" + x.getGroupID() + "  " + x.getSender() + ":  " + x.getContent() + "   Time:" + x.getTime()));
-
-                if (!(Combo_Id.Items.Contains(x.getGroupID())))
+                //if(x.getUser()==null)
+                //c++;
+                //MessageBox.Show(x.getContent());
                 {
-                    Combo_Id.Items.Add(x.getGroupID());
-                }
-                if (!(Combo_User.Items.Contains("<" + x.getGroupID() + "," + x.getSender() + ">")))
-                {
-                    Combo_User.Items.Add("<" + x.getGroupID() + "," + x.getSender() + ">");
-                }
+                    _main.Messages.Add((String)("id:" + x.getGroupID() + "  " + x.getSender() + ":  " + x.getContent() + "   Time:" + x.getTime()));
 
+                    if (!(Combo_Id.Items.Contains(x.getGroupID())))
+                    {
+                        Combo_Id.Items.Add(x.getGroupID());
+                    }
+                    if (!(Combo_User.Items.Contains("<" + x.getGroupID() + "," + x.getSender() + ">")))
+                    {
+                        Combo_User.Items.Add("<" + x.getGroupID() + "," + x.getSender() + ">");
+                    }
+                }
             }
- 
+        //    MessageBox.Show(c+"");
+
 
         }
 

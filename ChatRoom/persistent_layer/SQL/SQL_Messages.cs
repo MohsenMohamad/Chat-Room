@@ -39,7 +39,7 @@ namespace persistent_layer.SQL
                 {
                     User user = temp.returnuser((int)data_reader.GetValue(1));
                     DateTime time = (DateTime)data_reader.GetValue(2);
-                    String messageContent = (String)data_reader.GetValue(3);
+                    String messageContent = ((String)data_reader.GetValue(3)).Trim();
                     time = time.ToLocalTime();
                     lastMessages.Add(new Message(user, messageContent, time));
                 }
@@ -52,6 +52,8 @@ namespace persistent_layer.SQL
             {
                 return lastMessages;
             }
+        }
+        public void aa(Message newmassage) {
 
         }
 

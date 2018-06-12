@@ -112,9 +112,12 @@ namespace persistent_layer.SQL
                 data_reader = command.ExecuteReader();
                 while (data_reader.Read())
                 {
-                    if (userid.Equals((int)data_reader.GetValue(0)))
+                    if (userid==((int)data_reader.GetValue(0)))
                     {
                         User user = new User((data_reader.GetValue(2) + "").Trim(),(data_reader.GetValue(3) + "").Trim(),((int)data_reader.GetValue(1)),userid);
+                        data_reader.Close();
+                        command.Dispose();
+                        connection.Close();
                         return user;
                     }
                 }
@@ -125,7 +128,7 @@ namespace persistent_layer.SQL
             }
             catch (Exception ex)
             {
-                return null;
+                return new User("errorcatch", "errorcatch", 0, 0);
             }
         }
     }
