@@ -27,7 +27,6 @@ namespace GUI
     {
         private User userlogin;
         ObservableObject _main = new ObservableObject();
-        private Retrieve retrieve = new Retrieve();
         DateTime time = DateTime.Now;
         private List<Message> Message_List = new List<Message>();
         private List<Message> Filtered_Message_List= new List<Message>();
@@ -45,7 +44,17 @@ namespace GUI
             timer.Start();
             
         }
-        
+        //Enter
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //loging the activety of the project 
+                logging_activety.logging_msg("enter activation from user to send message");
+                TextBox box = sender as TextBox;
+                _main.MessageContent = box.Text;
+            }
+        }
         //updates the 
         private void update(List<Message> Message_List)
         {
@@ -54,7 +63,6 @@ namespace GUI
             // updates the Filtered_Message_List using current filter and sort , so that the textblock text will be binded to it
             _main.Messages.Clear(); 
             logging_activety.logging_msg("Updating the interface..."); // Log
-            int c = 0;
             foreach (Message x in Message_List)
             {
                 //if(x.getUser()==null)
@@ -108,15 +116,21 @@ namespace GUI
             
             _main.Messages.Add("id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
-            temp.SendMessage(userlogin , mes , time);
-            logging_activety.logging_msg("The message was sent successfully"); // Log
-
+            bool success = temp.SendMessage(userlogin , mes , time);
+            if(success)
+                logging_activety.logging_msg("The message was sent successfully"); // Log
+            else
+            {
+                logging_activety.logging_msg("Lost connection with the database"); // Log
+                MessageBox.Show("Could not send message , please check your connection");
+            }
         }
 
         // Changes the messages interface by the user's choice
         private void Button_Filter_Sort_Click(object sender, EventArgs  e)
         {
-            Message_List=retrieve.pullLastMassages();
+            Retrieve retrieve = new Retrieve();
+            Message_List =retrieve.pullLastMassages();
             update(Message_List);
         }
 

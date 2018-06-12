@@ -11,13 +11,15 @@ namespace persistent_layer.Data_type
        private User sender;
        private DateTime time;
        private String content;
-       
+       private Guid guid;
 
-        public Message(User sender, String messageBody , DateTime sendingTime) {
+        public Message(Guid messageGuid ,User sender, String messageBody , DateTime sendingTime) {
 
             this.sender = sender;
             time = sendingTime;
             content = messageBody;
+            guid = messageGuid;
+            
         }
         
         public String getSender()
@@ -42,6 +44,11 @@ namespace persistent_layer.Data_type
         public String getContent()
         {
             return content;
+        }
+
+        public Guid getGuid()
+        {
+            return guid;
         }
 
         public User getUser()

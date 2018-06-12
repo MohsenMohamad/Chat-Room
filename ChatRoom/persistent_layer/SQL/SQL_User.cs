@@ -128,7 +128,7 @@ namespace persistent_layer.SQL
             }
             catch (Exception ex)
             {
-                return new User("errorcatch", "errorcatch", 0, 0);
+                return null;
             }
         }
     }
