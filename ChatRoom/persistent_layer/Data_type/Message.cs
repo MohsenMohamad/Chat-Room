@@ -1,65 +1,52 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Communication_Layer.CommunicationLayer;
+
 
 namespace persistent_layer.Data_type
 {
     [Serializable]
-    public class Message : IMessage
+    public class Message
     {
-       public Guid ID;
-       public string UserName;
-       public DateTime Data;
-       public string MessageContent;
-       public string grupid;
+       private Guid id;
+       private User sender;
+       private DateTime time;
+       private String content;
        
 
-        public Message(Guid Id, string UserName, DateTime Data, string MessageContent,string gid) {
-            this.ID = Id;
-            this.UserName = UserName;
-            this.Data = Data;
-            this.MessageContent = MessageContent;
-            this.grupid = gid;
+        public Message(User sender, String messageBody , DateTime sendingTime) {
+
+            this.sender = sender;
+            time = sendingTime;
+            content = messageBody;
         }
-        public Guid Id
+        public Guid getGuid()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return id;
         }
 
-        string IMessage.UserName
+        public String getSender()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return sender.getNickName();
+        }
+        public DateTime getTime()
+        {
+            return time;
         }
 
-        DateTime IMessage.Date
+        public int getGroupID()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return sender.getGroupID();
+        }
+        
+        public int getID()
+        {
+            return sender.getID();
         }
 
-        string IMessage.MessageContent
+        public String getContent()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
-
-        string IMessage.GroupID
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return content;
         }
     }
 }

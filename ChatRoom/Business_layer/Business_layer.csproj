@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="communication\Retrieve.cs" />
-    <Compile Include="communication\send_reseve_Massge.cs" />
+    <Compile Include="communication\Sending.cs" />
     <Compile Include="Filter_sort\FilterAndSort.cs" />
     <Compile Include="logging_activety.cs" />
     <Compile Include="Login_out\hashing.cs" />
@@ -50,10 +50,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Communication_Layer\Communication_Layer.csproj">
-      <Project>{e892005b-c4fc-4eab-9ce8-98383248b664}</Project>
-      <Name>Communication_Layer</Name>
-    </ProjectReference>
     <ProjectReference Include="..\persistent_layer\persistent_layer.csproj">
       <Project>{941cb6d7-7fe7-4c0f-9ac5-0ea0441b1e32}</Project>
       <Name>persistent_layer</Name>

@@ -27,6 +27,7 @@ namespace GUI
     {
         private User userlogin;
         ObservableObject _main = new ObservableObject();
+        DateTime time = DateTime.Now;
         private List<Message> Message_List;
         private List<Message> Filtered_Message_List;
         DispatcherTimer timer = new DispatcherTimer();
@@ -55,15 +56,15 @@ namespace GUI
             foreach (Message x in Message_List)
             {
                 {
-                    _main.Messages.Add((String)("id:" + x.grupid + "  " + x.UserName + ":  " + x.MessageContent + "   Time:" + x.Data ));
+                    _main.Messages.Add((String)("id:" + x.getGroupID() + "  " + x.getSender() + ":  " + x.getContent() + "   Time:" + x.getTime() ));
                     
-                    if (!(Combo_Id.Items.Contains(x.grupid)))
+                    if (!(Combo_Id.Items.Contains(x.getGroupID())))
                     {
-                        Combo_Id.Items.Add(x.grupid);
+                        Combo_Id.Items.Add(x.getGroupID());
                     }
-                    if (!(Combo_User.Items.Contains("<" + x.grupid + "," + x.UserName + ">")))
+                    if (!(Combo_User.Items.Contains("<" + x.getGroupID() + "," + x.getSender() + ">")))
                     {
-                        Combo_User.Items.Add("<" + x.grupid + "," + x.UserName + ">");
+                        Combo_User.Items.Add("<" + x.getGroupID() + "," + x.getSender() + ">");
                     }
                 }
             }
@@ -92,7 +93,7 @@ namespace GUI
         private void Button_Send_Click(object sender, RoutedEventArgs e)
         { 
             TextBox box = sender as TextBox;
-            send_reseve_Massge temp = new send_reseve_Massge();
+            Sending temp = new Sending();
             String mes = _main.MessageContent; 
             logging_activety.logging_msg("Message sending attempt..."); // Log
             if (!Legal_Message(mes))
@@ -100,7 +101,7 @@ namespace GUI
             
             _main.Messages.Add("id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
-            temp.Send(userlogin.getNickName(), userlogin.getID(), mes);
+            temp.SendMessage(userlogin , mes , time);
             logging_activety.logging_msg("The message was sent successfully"); // Log
 
         }
@@ -108,12 +109,22 @@ namespace GUI
         // Changes the messages interface by the user's choice
         private void Button_Filter_Sort_Click(object sender, EventArgs  e)
         { 
-            logging_activety.logging_msg("activat filter"); // Log
-            Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
+            logging_activety.logging_msg("activate filter"); // Log
+
+            // Send to the Business_Layer the last message time
+            Message_List = Business_layer.communication.Retrieve.pullLastMassages(time);
+            // The Business_Layer sends this time to the Persistent_Layer
+            // The Persistent_Layer checks all the last 200 messages
+            // if there is a message that was editted return it
+            // else return all the messages that were sent after that last message time
+
+
             Message_List = Business_layer.communication.Retrieve.pullallMassages();
-            logging_activety.logging_msg("pul new filter instens"); // Log
+
+
+            logging_activety.logging_msg("pull new filter instens"); // Log
             FilterAndSort tmp = new FilterAndSort();
-            logging_activety.logging_msg("filter Identefing"); // Log
+            logging_activety.logging_msg("filter identifying"); // Log
             if (RadioButton1.IsChecked==true)
             {
                 logging_activety.logging_msg("sort and filter message list"); // Log
