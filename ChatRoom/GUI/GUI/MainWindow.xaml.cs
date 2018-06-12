@@ -73,10 +73,10 @@ namespace GUI
             User user = temp.Login( name, password , groupID );
             
 
-            if(user.getID()==-2)
-                MessageBox.Show("Could not connect to the database!");
-            else if (user == null)
+            if(user == null)
                 MessageBox.Show("User not found!");
+            else if (user.getID() == -2)
+                MessageBox.Show("Could not connect to the database!");
             
             else
             { 

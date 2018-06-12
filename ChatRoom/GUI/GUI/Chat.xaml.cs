@@ -43,18 +43,6 @@ namespace GUI
             timer.Start();
             
         }
-
-
-        private void TextBox_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                //loging the activety of the project 
-                logging_activety.logging_msg("enter activation from user to send message");
-                TextBox box = sender as TextBox;
-                _main.MessageContent = box.Text;
-            }
-        }
         
         //updates the 
         private void update(List<Message> Message_List)
@@ -93,9 +81,9 @@ namespace GUI
 
         // Closes the application
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
-        { 
-            logging_activety.logging_msg("App closed"); // Log
+        {
             MessageBox.Show("See you soon!");
+            logging_activety.logging_msg("App closed"); // Log
             Application.Current.Shutdown();
 
         }
