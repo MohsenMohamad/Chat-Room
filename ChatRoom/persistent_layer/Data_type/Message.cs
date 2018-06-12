@@ -8,7 +8,6 @@ namespace persistent_layer.Data_type
     [Serializable]
     public class Message
     {
-       private Guid id;
        private User sender;
        private DateTime time;
        private String content;
@@ -20,11 +19,7 @@ namespace persistent_layer.Data_type
             time = sendingTime;
             content = messageBody;
         }
-        public Guid getGuid()
-        {
-            return id;
-        }
-
+        
         public String getSender()
         {
             return sender.getNickName();

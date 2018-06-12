@@ -7,8 +7,7 @@ using System.Web.Script.Serialization;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using persistent_layer.Data_type;
-using Communication_Layer;
-using Communication_Layer.CommunicationLayer;
+
 
 namespace persistent_layer
 {
