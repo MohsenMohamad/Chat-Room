@@ -5,6 +5,7 @@ using persistent_layer.Data_type;
 using persistent_layer;
 using persistent_layer.logfile;
 using System.Linq;
+using persistent_layer.SQL;
 
 namespace Business_layer.Login_out
 {
@@ -32,11 +33,6 @@ namespace Business_layer.Login_out
                 return false;
             }
             
-
-
-
-
-
             // Asks the Data Access Layer to add the user to the database 
             
         }

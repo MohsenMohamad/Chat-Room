@@ -169,3 +169,14 @@ C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-I
 C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csproj.CopyComplete
 C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.dll
 C:\Users\jamil\Documents\Introduction To Software Engineering\-ISE172_project\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.pdb
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\persistent_layer.dll
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\persistent_layer.pdb
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Communication_Layer.dll
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Newtonsoft.Json.dll
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Communication_Layer.pdb
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\Newtonsoft.Json.xml
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csprojResolveAssemblyReference.cache
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csproj.CoreCompileInputs.cache
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csproj.CopyComplete
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.dll
+C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.pdb
