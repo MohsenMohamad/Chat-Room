@@ -189,10 +189,6 @@ C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\obj
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.pdb
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.dll
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.pdb
-C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Communication_Layer.dll
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.dll
-C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Newtonsoft.Json.dll
-C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Communication_Layer.pdb
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.pdb
-C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Newtonsoft.Json.xml
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CopyComplete

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
+using System.Data;
 
 namespace persistent_layer.SQL
 {
@@ -57,8 +58,54 @@ namespace persistent_layer.SQL
             return id;
             
         }
-        public Boolean RegisterUser(String name, String password, String groupID) {
-            return true;
+        public Boolean RegisterUser(String userName, String userPassword, String GroupID) {
+            
+                string checkid=Exists(userName, userPassword, GroupID);
+            if (checkid.Equals("-2")) {
+                return false;
+            }
+            if (checkid.Equals("-1"))
+            {
+                try
+                {
+                    connection.Open();
+                    command = new SqlCommand(null, connection);
+                    command.CommandText =
+                        " insert into Users (Group_Id,Nickname,Password) " + // Fill code here. SQL query for inserting values into customer table *******************************************************
+                        "VALUES (@Group_Id,@Nickname,@Password)";
+                    SqlParameter Group_Id_param = new SqlParameter(@"Group_Id", SqlDbType.Int, 20);
+                    SqlParameter Nickname_param = new SqlParameter(@"Nickname", SqlDbType.Text, 20);
+                    SqlParameter Password_param = new SqlParameter(@"Password", SqlDbType.Text, 20);
+
+                    Group_Id_param.Value = Convert.ToInt32(GroupID);
+                    Nickname_param.Value = userName;
+                    Password_param.Value = userPassword;
+
+                    command.Parameters.Add(Group_Id_param);
+                    command.Parameters.Add(Nickname_param);
+                    command.Parameters.Add(Password_param);
+
+
+                    // Call Prepare after setting the Commandtext and Parameters.
+                    command.Prepare();
+
+                    int num_rows_changed = command.ExecuteNonQuery();
+                    command.Dispose();
+                    connection.Close();
+                    return true;
+                }
+                catch (Exception ex)
+                {
+                    return false;
+
+                }
+            }
+            else
+            {
+                return false;
+            }
+       
+
         }
     }
 }

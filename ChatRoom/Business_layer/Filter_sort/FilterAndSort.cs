@@ -20,10 +20,10 @@ namespace Business_layer.Filter_sort
             if (!(filter.Equals("None"))){
                 if (filter.Equals("group"))
                 {
-                    msg = msg.Where(x => x.getGroupID() == fid).ToList();
+                    msg = msg.Where(x => x.getGroupID() == Convert.ToInt32(fid)).ToList();
                 }
                 if (filter.Equals("user")) {
-                    msg = msg.Where(x => x.getGroupID() == fid & x.getSender() == fname).ToList();
+                    msg = msg.Where(x => x.getGroupID() == Convert.ToInt32(fid) & x.getSender() == fname).ToList();
                 }
             }
             if (sort.Equals("timestamp")) {

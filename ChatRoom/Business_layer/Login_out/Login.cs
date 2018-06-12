@@ -19,9 +19,9 @@ namespace Business_layer.Login_out
 
             logging_activety.logging_msg("login attempt"); // Log
             SQL_User temp = new SQL_User();
-            //    String hashed_Password = hashing.GetHashString(password);
-            String hashed_Password = password;
-            int id = temp.LoginUser(name, password , groupID);
+            String hashed_Password = hashing.GetHashString(password);
+            //String hashed_Password = password;
+            int id = temp.LoginUser(name, hashed_Password , groupID);
 
             if (id == -1)
             {
@@ -37,7 +37,7 @@ namespace Business_layer.Login_out
             else
             {
                 logging_activety.logging_msg("user found | enter to login window"); // Log
-                User user = new User(name, password, Convert.ToInt32(groupID) , id );
+                User user = new User(name, hashed_Password, Convert.ToInt32(groupID) , id );
 
                 return user;
 
