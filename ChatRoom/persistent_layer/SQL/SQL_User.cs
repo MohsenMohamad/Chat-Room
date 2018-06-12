@@ -60,11 +60,11 @@ namespace persistent_layer.SQL
         }
         public Boolean RegisterUser(String userName, String userPassword, String GroupID) {
             
-                string checkid=Exists(userName, userPassword, GroupID);
-            if (checkid.Equals("-2")) {
+                String checkId=Exists(userName, userPassword, GroupID);
+            if (checkId.Equals("-2")) {
                 return false;
             }
-            if (checkid.Equals("-1"))
+            if (checkId.Equals("-1"))
             {
                 try
                 {
@@ -74,8 +74,8 @@ namespace persistent_layer.SQL
                         " insert into Users (Group_Id,Nickname,Password) " + // Fill code here. SQL query for inserting values into customer table *******************************************************
                         "VALUES (@Group_Id,@Nickname,@Password)";
                     SqlParameter Group_Id_param = new SqlParameter(@"Group_Id", SqlDbType.Int, 20);
-                    SqlParameter Nickname_param = new SqlParameter(@"Nickname", SqlDbType.Text, 20);
-                    SqlParameter Password_param = new SqlParameter(@"Password", SqlDbType.Text, 20);
+                    SqlParameter Nickname_param = new SqlParameter(@"Nickname", SqlDbType.Text, 10);
+                    SqlParameter Password_param = new SqlParameter(@"Password", SqlDbType.Text, 64);
 
                     Group_Id_param.Value = Convert.ToInt32(GroupID);
                     Nickname_param.Value = userName;
