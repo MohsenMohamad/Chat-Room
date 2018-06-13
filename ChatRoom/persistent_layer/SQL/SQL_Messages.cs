@@ -95,11 +95,40 @@ namespace persistent_layer.SQL
                     return false;
                 }
             }
-        
-        public bool Edit(Message oldMessage , String newContent , DateTime editTime)
-        {
-            return false;
-        }
 
+        public bool Edit(Message oldMessage, String newContent, DateTime editTime)
+        {
+            try
+            {
+                connection.Open();
+                command = new SqlCommand(null, connection);
+                command.CommandText =
+                    " UPDATE Messages SET Body=@Body,SendTime=@SendTime  Where Guid=@Guid";
+                SqlParameter Guid_param = new SqlParameter(@"Guid", SqlDbType.Char, 68);
+                SqlParameter SendTime_param = new SqlParameter(@"SendTime", SqlDbType.DateTime, 20);
+                SqlParameter Body_param = new SqlParameter(@"Body", SqlDbType.Text, 100);
+                Guid msgGuid = Guid.NewGuid();
+
+                Guid_param.Value = oldMessage.getGuid() + "";
+                SendTime_param.Value = editTime;
+                Body_param.Value = newContent;
+
+                command.Parameters.Add(Guid_param);
+                command.Parameters.Add(SendTime_param);
+                command.Parameters.Add(Body_param);
+
+
+                // Call Prepare after setting the Commandtext and Parameters.
+                command.Prepare();
+
+                command.Dispose();
+                connection.Close();
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+            }
+        }
     }
 }
