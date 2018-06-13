@@ -107,9 +107,8 @@ namespace persistent_layer.SQL
                 SqlParameter Guid_param = new SqlParameter(@"Guid", SqlDbType.Char, 68);
                 SqlParameter SendTime_param = new SqlParameter(@"SendTime", SqlDbType.DateTime, 20);
                 SqlParameter Body_param = new SqlParameter(@"Body", SqlDbType.Text, 100);
-                Guid msgGuid = Guid.NewGuid();
 
-                Guid_param.Value = oldMessage.getGuid() + "";
+                Guid_param.Value = (oldMessage.getGuid()+"");
                 SendTime_param.Value = editTime;
                 Body_param.Value = newContent;
 
@@ -121,6 +120,7 @@ namespace persistent_layer.SQL
                 // Call Prepare after setting the Commandtext and Parameters.
                 command.Prepare();
 
+                int num_rows_changed = command.ExecuteNonQuery();
                 command.Dispose();
                 connection.Close();
                 return true;

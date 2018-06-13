@@ -188,3 +188,12 @@ C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.dll
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.pdb
 C:\Users\adnan\Documents\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CopyComplete
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.dll
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.pdb
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.dll
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.pdb
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csprojResolveAssemblyReference.cache
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CoreCompileInputs.cache
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CopyComplete
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.dll
+C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.pdb

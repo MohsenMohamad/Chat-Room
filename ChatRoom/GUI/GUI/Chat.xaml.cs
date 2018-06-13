@@ -31,6 +31,7 @@ namespace GUI
         private List<Message> Message_List = new List<Message>();
         private List<Message> Filtered_Message_List= new List<Message>();
         DispatcherTimer timer = new DispatcherTimer();
+        int editIndex = -1;
 
         //Creates the windows' display
         public Chat(User userlogin)
@@ -160,5 +161,42 @@ namespace GUI
             return true;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Sending temp = new Sending();
+            String newContent = Text_Edit.Text;
+    //      String newContent = "editted messa000";
+            Message message = Message_List.ElementAt(editIndex);
+            bool k =temp.EditMessage( message , newContent , DateTime.Now);
+            MessageBox.Show(k+"");
+
+
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Box_Messages.SelectedIndex;
+            if (index != -1)
+            {
+                Message check = Message_List.ElementAt(index);
+                if (userlogin.getID() == check.getID())
+                {
+                    editIndex = index;
+                    Text_Edit.Visibility = Visibility.Visible;
+                    Button_Edit.Visibility = Visibility.Visible;
+                    Text_Edit.Text = check.getContent();
+             //       MessageBox.Show("");
+                }
+
+                else
+                {
+                    Text_Edit.Visibility = Visibility.Hidden;
+                    Button_Edit.Visibility = Visibility.Hidden;
+                    Text_Edit.Text = String.Empty;
+                }
+            }
+
+
+        }
     }
 }
