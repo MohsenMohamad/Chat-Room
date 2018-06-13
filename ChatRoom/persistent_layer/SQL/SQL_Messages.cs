@@ -193,5 +193,76 @@ namespace persistent_layer.SQL
                 return lastMessages;
             }
         }
+        public List<Message> Filterid(string filtergroubid)
+        {
+            SQL_User temp = new SQL_User();
+            List<Message> lastMessages = new List<Message>();
+            List<User> usergroupid = new List<User>();
+            usergroupid = temp.returnalluser(filtergroubid);
+            try
+            {
+                int c = 0;
+                connection.Open();
+                sql_query = "select * from[dbo].[Messages] WHERE User_Id=@User_Id ORDER BY SendTime DESC;";
+                command = new SqlCommand(sql_query, connection);
+                foreach (User x in usergroupid)
+                {
+                    SqlParameter User_Id_param = new SqlParameter(@"User_Id", SqlDbType.DateTime, 20);
+                    User_Id_param.Value = x.getID();
+                    command.Parameters.Add(User_Id_param);
+                    data_reader = command.ExecuteReader();
+                    while (data_reader.Read() && c <= 200)
+                    {
+                        User user = temp.returnuser((int)data_reader.GetValue(1));
+                        DateTime time = (DateTime)data_reader.GetValue(2);
+                        String messageContent = ((String)data_reader.GetValue(3)).Trim();
+                        Guid guid = Guid.Parse(data_reader.GetValue(0) + "");
+                        time = time.ToLocalTime();
+                        lastMessages.Insert(0, new Message(guid, user, messageContent, time));
+                    }
+                }
+                data_reader.Close();
+                command.Dispose();
+                connection.Close();
+                return lastMessages;
+            }
+            catch (Exception ex)
+            {
+                return lastMessages;
+            }
+        }
+        public List<Message> FilterUser(string filterid)
+        {
+            List<Message> lastMessages = new List<Message>();
+            SQL_User temp = new SQL_User();
+            try
+            {
+                int c = 0;
+                connection.Open();
+                sql_query = "select* from[dbo].[Messages] WHERE User_Id=@User_Id ORDER BY SendTime DESC;";
+                command = new SqlCommand(sql_query, connection);
+                SqlParameter User_Id_param = new SqlParameter(@"User_Id", SqlDbType.DateTime, 20);
+                User_Id_param.Value = filterid;
+                command.Parameters.Add(User_Id_param);
+                data_reader = command.ExecuteReader();
+                while (data_reader.Read() && c <= 200)
+                {
+                    User user = temp.returnuser((int)data_reader.GetValue(1));
+                    DateTime time = (DateTime)data_reader.GetValue(2);
+                    String messageContent = ((String)data_reader.GetValue(3)).Trim();
+                    Guid guid = Guid.Parse(data_reader.GetValue(0) + "");
+                    time = time.ToLocalTime();
+                    lastMessages.Insert(0, new Message(guid, user, messageContent, time));
+                }
+                data_reader.Close();
+                command.Dispose();
+                connection.Close();
+                return lastMessages;
+            }
+            catch (Exception ex)
+            {
+                return lastMessages;
+            }
+        }
     }
 }
