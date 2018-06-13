@@ -66,9 +66,7 @@ namespace GUI
             logging_activety.logging_msg("Updating the interface..."); // Log
             foreach (Message x in Message_List)
             {
-                //if(x.getUser()==null)
-                //c++;
-                //MessageBox.Show(x.getContent());
+
                 {
                     _main.Messages.Add((String)("id:" + x.getGroupID() + "  " + x.getSender() + ":  " + x.getContent() + "   Time:" + x.getTime()));
 
@@ -82,8 +80,6 @@ namespace GUI
                     }
                 }
             }
-        //    MessageBox.Show(c+"");
-
 
         }
 
@@ -132,7 +128,9 @@ namespace GUI
         {
             Retrieve retrieve = new Retrieve();
             Message_List =retrieve.pullLastMassages();
-            update(Message_List);
+            FilterAndSort tmp = new FilterAndSort();
+            Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Sort.Text, RadioButton1.IsChecked==true);
+            update(Filtered_Message_List);
         }
 
         //

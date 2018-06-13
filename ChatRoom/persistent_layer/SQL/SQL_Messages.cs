@@ -161,5 +161,37 @@ namespace persistent_layer.SQL
                 return lastMessages;
             }
         }
+        public List<Message> pullNewMassages(DateTime newtime) {
+            List<Message> lastMessages = new List<Message>();
+            SQL_User temp = new SQL_User();
+            try
+            {
+                int c = 0;
+                connection.Open();
+                sql_query = "select* from[dbo].[Messages] WHERE SendTime>@SendTime ORDER BY SendTime DESC;";
+                command = new SqlCommand(sql_query, connection);
+                SqlParameter SendTime_param = new SqlParameter(@"SendTime", SqlDbType.DateTime, 20);
+                SendTime_param.Value = newtime;
+                command.Parameters.Add(SendTime_param);
+                data_reader = command.ExecuteReader();
+                while (data_reader.Read() && c <= 200)
+                {
+                    User user = temp.returnuser((int)data_reader.GetValue(1));
+                    DateTime time = (DateTime)data_reader.GetValue(2);
+                    String messageContent = ((String)data_reader.GetValue(3)).Trim();
+                    Guid guid = Guid.Parse(data_reader.GetValue(0) + "");
+                    time = time.ToLocalTime();
+                    lastMessages.Insert(0, new Message(guid, user, messageContent, time));
+                }
+                data_reader.Close();
+                command.Dispose();
+                connection.Close();
+                return lastMessages;
+            }
+            catch (Exception ex)
+            {
+                return lastMessages;
+            }
+        }
     }
 }

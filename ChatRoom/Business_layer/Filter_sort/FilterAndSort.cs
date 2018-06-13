@@ -12,20 +12,11 @@ namespace Business_layer.Filter_sort
     {
         
         
-        public List<Message> Filterandsort(List<Message> msg, string filter,string fid,string fname,string sort, Boolean asc) {
+        public List<Message> Filterandsort(List<Message> msg,string sort, Boolean asc) {
             
             //loging activety 
             logging_activety.logging_msg("sorting the Message List");
 
-            if (!(filter.Equals("None"))){
-                if (filter.Equals("group"))
-                {
-                    msg = msg.Where(x => x.getGroupID() == Convert.ToInt32(fid)).ToList();
-                }
-                if (filter.Equals("user")) {
-                    msg = msg.Where(x => x.getGroupID() == Convert.ToInt32(fid) & x.getSender() == fname).ToList();
-                }
-            }
             if (sort.Equals("timestamp")) {
                 if (asc == true)
                 {
