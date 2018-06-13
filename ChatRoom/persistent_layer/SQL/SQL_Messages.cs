@@ -27,35 +27,35 @@ namespace persistent_layer.SQL
             connetion_string = $"Data Source={server_address};Initial Catalog={database_name };User ID={user_name};Password={password}";
             connection = new SqlConnection(connetion_string);
         }
-        public List<Message> pullLastMassages()
-        {
-            SQL_User temp = new SQL_User();
-            List<Message> lastMessages= new List<Message>();
-            try
-            {
-                connection.Open();
-                sql_query = "select * from [dbo].[Messages];";
-                command = new SqlCommand(sql_query, connection);
-                data_reader = command.ExecuteReader();
-                while (data_reader.Read())
-                {
-                    User user = temp.returnuser((int)data_reader.GetValue(1));
-                    DateTime time = (DateTime)data_reader.GetValue(2);
-                    String messageContent = ((String)data_reader.GetValue(3)).Trim();
-                    Guid guid = Guid.Parse(data_reader.GetValue(0)+"");
-                    time = time.ToLocalTime();
-                    lastMessages.Add(new Message(guid,user, messageContent, time));
-                }
-                data_reader.Close();
-                command.Dispose();
-                connection.Close();
-                return lastMessages;
-            }
-            catch (Exception ex)
-            {
-                return lastMessages;
-            }
-        }
+        //public List<Message> pullLastMassages()
+        //{
+        //    SQL_User temp = new SQL_User();
+        //    List<Message> lastMessages= new List<Message>();
+        //    try
+        //    {
+        //        connection.Open();
+        //        sql_query = "select * from [dbo].[Messages];";
+        //        command = new SqlCommand(sql_query, connection);
+        //        data_reader = command.ExecuteReader();
+        //        while (data_reader.Read())
+        //        {
+        //            User user = temp.returnuser((int)data_reader.GetValue(1));
+        //            DateTime time = (DateTime)data_reader.GetValue(2);
+        //            String messageContent = ((String)data_reader.GetValue(3)).Trim();
+        //            Guid guid = Guid.Parse(data_reader.GetValue(0)+"");
+        //            time = time.ToLocalTime();
+        //            lastMessages.Add(new Message(guid,user, messageContent, time));
+        //        }
+        //        data_reader.Close();
+        //        command.Dispose();
+        //        connection.Close();
+        //        return lastMessages;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        return lastMessages;
+        //    }
+        //}
         public bool Send(User user, String content, DateTime time)
         {
                 try
@@ -128,6 +128,37 @@ namespace persistent_layer.SQL
             catch (Exception ex)
             {
                 return false;
+            }
+        }
+        public List<Message> pullLastMassages()
+        {
+            List<Message> lastMessages = new List<Message>();
+            SQL_User temp = new SQL_User();
+            try
+            {
+                int c = 0;
+                connection.Open();
+                sql_query = "select * from [dbo].[Messages] ORDER BY SendTime DESC;";
+                command = new SqlCommand(sql_query, connection);
+                data_reader = command.ExecuteReader();
+                while (data_reader.Read() && c <= 200)
+                {
+                    User user = temp.returnuser((int)data_reader.GetValue(1));
+                    DateTime time = (DateTime)data_reader.GetValue(2);
+                    String messageContent = ((String)data_reader.GetValue(3)).Trim();
+                    Guid guid = Guid.Parse(data_reader.GetValue(0) + "");
+                    time = time.ToLocalTime();
+                    lastMessages.Insert(0, new Message(guid, user, messageContent, time));
+                }
+                data_reader.Close();
+                command.Dispose();
+                connection.Close();
+                return lastMessages;
+
+            }
+            catch (Exception ex)
+            {
+                return lastMessages;
             }
         }
     }
