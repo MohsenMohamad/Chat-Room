@@ -111,7 +111,7 @@ namespace GUI
             if (!Legal_Message(mes))
                     return;
             
-            _main.Messages.Add("id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
+            _main.Messages.Add("Group Id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
             bool success = temp.SendMessage(userlogin , mes , DateTime.Now);
             if(success)
