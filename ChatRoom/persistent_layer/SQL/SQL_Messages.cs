@@ -227,7 +227,7 @@ namespace persistent_layer.SQL
                 return null;
             }
         }
-        public List<Message> aaa(string filtergroubid) {
+        public List<Message> filterByID(string filtergroubid) {
             SQL_User temp = new SQL_User();
             List<Message> lastMessages = new List<Message>();
             List<User> usergroupid = new List<User>();

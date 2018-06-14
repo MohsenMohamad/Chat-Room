@@ -57,14 +57,14 @@ namespace GUI
             }
         }
         //updates the 
-        private void update(List<Message> Message_List)
+        private void update(List<Message> Message_List1)
         {
 
             //Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
             // updates the Filtered_Message_List using current filter and sort , so that the textblock text will be binded to it
             _main.Messages.Clear(); 
             logging_activety.logging_msg("Updating the interface..."); // Log
-            foreach (Message x in Message_List)
+            foreach (Message x in Message_List1)
             {
 
                 {
@@ -173,7 +173,7 @@ namespace GUI
             if(!Legal_Message(newContent))
                 return;
             
-            Message message = Message_List.ElementAt(editIndex);
+            Message message = Filtered_Message_List.ElementAt(editIndex);
             bool k =temp.EditMessage( message , newContent , DateTime.Now);
             MessageBox.Show("Message was edited Successfully");
 
@@ -185,7 +185,7 @@ namespace GUI
             int index = Box_Messages.SelectedIndex;
             if (index != -1)
             {
-                Message check = Message_List.ElementAt(index);
+                Message check = Filtered_Message_List.ElementAt(index);
 
                 if (userlogin.getID() == check.getID())
                 {

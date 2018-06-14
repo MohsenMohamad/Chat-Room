@@ -30,7 +30,7 @@ namespace Business_layer.communication
         }
         public List<Message> Filterid(string filtergroubid) {
             SQL_Messages temp = new SQL_Messages();
-            List<Message> msgList = temp.aaa(filtergroubid);
+            List<Message> msgList = temp.filterByID(filtergroubid);
             return msgList;
         }
         public List<Message> Filteruser(string iduser,string nameuser) {
