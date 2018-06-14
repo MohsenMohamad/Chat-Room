@@ -132,6 +132,9 @@ namespace GUI
             if (Combo_Filter.Text.Equals("group") && !(Combo_Id.SelectedItem == null)) {
                 Message_List = updateMessages.Filterid(Combo_Id.Text);
             }
+            if (Combo_Filter.Text.Equals("user") && !(Combo_User.SelectedItem == null)) {
+                Message_List = updateMessages.Filteruser(iduser(Combo_User.Text),nameuser(Combo_User.Text));
+            }
             FilterAndSort tmp = new FilterAndSort();
             Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Sort.Text, RadioButton1.IsChecked==true);
             update(Filtered_Message_List);

@@ -160,5 +160,33 @@ namespace persistent_layer.SQL
                 return null;
             }
         }
+        public List<User> returnalluser(string userid ,string username)
+        {
+            List<User> usergroupid = new List<User>();
+            try
+            {
+                connection.Open();
+                sql_query = "select * from [dbo].[Users];";
+                command = new SqlCommand(sql_query, connection);
+                data_reader = command.ExecuteReader();
+                while (data_reader.Read())
+                {
+                    if (Convert.ToInt32(userid) == ((int)data_reader.GetValue(1))&&(username.Equals((data_reader.GetValue(2) + "").Trim())))
+                    {
+                        User user = new User((data_reader.GetValue(2) + "").Trim(), (data_reader.GetValue(3) + "").Trim(), Convert.ToInt32(userid), ((int)data_reader.GetValue(0)));
+
+                        usergroupid.Add(user);
+                    }
+                }
+                data_reader.Close();
+                command.Dispose();
+                connection.Close();
+                return usergroupid;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
     }
 }

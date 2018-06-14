@@ -33,6 +33,11 @@ namespace Business_layer.communication
             List<Message> msgList = temp.aaa(filtergroubid);
             return msgList;
         }
+        public List<Message> Filteruser(string iduser,string nameuser) {
+            SQL_Messages temp = new SQL_Messages();
+            List<Message> msgList = temp.FilterUser(iduser,nameuser);
+            return msgList;
+        }
 
     }
 }
