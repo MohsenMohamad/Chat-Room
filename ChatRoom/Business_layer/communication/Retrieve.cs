@@ -23,7 +23,14 @@ namespace Business_layer.communication
         {
             logging_activety.logging_msg("recall all messages form the data base");
 
-            List<Message> msgList = persistent_layer.Data_Base.returnallmessages();
+            SQL_Messages temp = new SQL_Messages();
+            List<Message> msgList = temp.pullNewMassages(time.ToUniversalTime());
+
+            return msgList;
+        }
+        public List<Message> Filterid(string filtergroubid) {
+            SQL_Messages temp = new SQL_Messages();
+            List<Message> msgList = temp.aaa(filtergroubid);
             return msgList;
         }
 

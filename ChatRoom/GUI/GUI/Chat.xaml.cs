@@ -27,7 +27,6 @@ namespace GUI
     {
         private User userlogin;
         ObservableObject _main = new ObservableObject();
-        DateTime time = DateTime.Now;
         private List<Message> Message_List = new List<Message>();
         private List<Message> Filtered_Message_List= new List<Message>();
         DispatcherTimer timer = new DispatcherTimer();
@@ -36,7 +35,8 @@ namespace GUI
         //Creates the windows' display
         public Chat(User userlogin)
         {
-
+            Retrieve retrieve = new Retrieve();
+            Message_List = retrieve.pullLastMassages();
             this.DataContext = _main;
             this.userlogin = userlogin;
             InitializeComponent();
@@ -113,7 +113,7 @@ namespace GUI
             
             _main.Messages.Add("id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
-            bool success = temp.SendMessage(userlogin , mes , time);
+            bool success = temp.SendMessage(userlogin , mes , DateTime.Now);
             if(success)
                 logging_activety.logging_msg("The message was sent successfully"); // Log
             else
@@ -126,8 +126,12 @@ namespace GUI
         // Changes the messages interface by the user's choice
         private void Button_Filter_Sort_Click(object sender, EventArgs  e)
         {
-            Retrieve retrieve = new Retrieve();
-            Message_List =retrieve.pullLastMassages();
+            Retrieve updateMessages = new Retrieve();
+            DateTime lastMessageTime = Message_List.Last().getTime();
+            Message_List.AddRange(updateMessages.pullNewMassages(lastMessageTime));
+            if (Combo_Filter.Text.Equals("group") && !(Combo_Id.SelectedItem == null)) {
+                Message_List = updateMessages.Filterid(Combo_Id.Text);
+            }
             FilterAndSort tmp = new FilterAndSort();
             Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Sort.Text, RadioButton1.IsChecked==true);
             update(Filtered_Message_List);
@@ -163,10 +167,12 @@ namespace GUI
         {
             Sending temp = new Sending();
             String newContent = Text_Edit.Text;
-    //      String newContent = "editted messa000";
+            if(!Legal_Message(newContent))
+                return;
+            
             Message message = Message_List.ElementAt(editIndex);
             bool k =temp.EditMessage( message , newContent , DateTime.Now);
-            MessageBox.Show(k+"");
+            MessageBox.Show("Message was edited Successfully");
 
 
         }
@@ -177,6 +183,7 @@ namespace GUI
             if (index != -1)
             {
                 Message check = Message_List.ElementAt(index);
+
                 if (userlogin.getID() == check.getID())
                 {
                     editIndex = index;

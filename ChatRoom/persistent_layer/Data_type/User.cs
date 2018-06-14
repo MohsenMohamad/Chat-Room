@@ -17,7 +17,7 @@ namespace persistent_layer.Data_type
         {
             Name = name;
             Password = password;
-            GroupID = id;
+            GroupID = groupID;
             ID = id;
 
         }
