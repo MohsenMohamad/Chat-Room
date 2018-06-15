@@ -41,7 +41,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Data_Base.cs" />
     <Compile Include="Data_type\Message.cs" />
     <Compile Include="Data_type\User.cs" />
     <Compile Include="logfile\LOG.cs" />

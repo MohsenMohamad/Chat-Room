@@ -137,9 +137,12 @@ namespace GUI
             }
             FilterAndSort tmp = new FilterAndSort();
             Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Sort.Text, RadioButton1.IsChecked==true);
+            fixlist();
             update(Filtered_Message_List);
         }
+        public void fixlist() {
 
+        }
         //
         public string iduser(string id) {
             
