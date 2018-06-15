@@ -176,3 +176,9 @@ C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\persistent_layer\obj
 C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csproj.CoreCompileInputs.cache
 C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.dll
 C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.pdb
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\persistent_layer.dll
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\bin\Debug\persistent_layer.pdb
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csprojAssemblyReference.cache
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.dll
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\persistent_layer\obj\Debug\persistent_layer.pdb

@@ -197,3 +197,12 @@ C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\D
 C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CopyComplete
 C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.dll
 C:\Users\adnan\Desktop\engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.pdb
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.dll
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\Business_layer.pdb
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.dll
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\bin\Debug\persistent_layer.pdb
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csprojAssemblyReference.cache
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CoreCompileInputs.cache
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.csproj.CopyComplete
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.dll
+C:\Users\Mobile Station\Documents\Introduction To Software Engineering\-ISE172_project\ChatRoom\Business_layer\obj\Debug\Business_layer.pdb
