@@ -13,7 +13,7 @@
     <Grid>
         <Button x:Name="Button_Send" Content="send" HorizontalAlignment="Left" Margin="556,353,0,0" VerticalAlignment="Top" Width="75" IsDefault="True" Click="Button_Send_Click"/>
         <Button x:Name="Button_Logout" Content="Logout" HorizontalAlignment="Left" Margin="713,10,0,0" VerticalAlignment="Top" Width="75" Click="Button_Logout_Click"/>
-        <TextBox Text="{Binding MessageContent}"  HorizontalAlignment="Left" Height="35" Margin="267,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271"/>
+        <TextBox Text="{Binding MessageContent}"  HorizontalAlignment="Left" Height="35" Margin="267,337,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="271" KeyDown="TextBox_KeyDown"/>
         <Button x:Name="Button_Exit" Content="Exit" HorizontalAlignment="Left" Margin="713,35,0,0" VerticalAlignment="Top" Width="75" Click="Button_Exit_Click"/>
         <ComboBox x:Name="Combo_Sort" HorizontalAlignment="Left" Margin="53,87,0,0" VerticalAlignment="Top" Width="120">
             <ComboBoxItem Content="timestamp" IsSelected="True"/>
@@ -30,7 +30,9 @@
         <RadioButton x:Name="RadioButton2" Content="descending" HorizontalAlignment="Left" Margin="88,143,0,0" VerticalAlignment="Top"/>
         <ComboBox x:Name="Combo_Id" Visibility="{Binding ElementName=g,Path=IsSelected,Converter={StaticResource  BoolToVisConverter}}" HorizontalAlignment="Left" Margin="150,245,0,0" VerticalAlignment="Top" Width="120"/>
         <ComboBox x:Name="Combo_User" Visibility="{Binding ElementName=u,Path=IsSelected,Converter={StaticResource  BoolToVisConverter}}" HorizontalAlignment="Left" Margin="10,244,0,0" VerticalAlignment="Top" Width="120"/>
-        <ListBox ItemsSource="{Binding Messages}"  w:ListBox.AutoScroll="True"   ScrollViewer.CanContentScroll="True" IsEnabled="True" HorizontalAlignment="Right" Height="277" VerticalAlignment="Top" Width="391" Margin="0,35,147.6,0"  />
+        <ListBox x:Name="Box_Messages" ItemsSource="{Binding Messages}"  w:ListBox.AutoScroll="False"   ScrollViewer.CanContentScroll="True" IsEnabled="True" HorizontalAlignment="Right" Height="277" VerticalAlignment="Top" Width="391" Margin="0,35,147.6,0" SelectionChanged="ListBox_SelectionChanged" />
+        <TextBox x:Name="Text_Edit" Visibility="Hidden" HorizontalAlignment="Left" Height="23" Margin="53,353,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" />
+        <Button x:Name="Button_Edit" Content="Edit" Visibility="Hidden" HorizontalAlignment="Left" Margin="178,338,0,0" VerticalAlignment="Top" Width="75" Click="Button_Click"/>
 
     </Grid>
 </Window>

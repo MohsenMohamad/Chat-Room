@@ -27,47 +27,60 @@ namespace GUI
     {
         private User userlogin;
         ObservableObject _main = new ObservableObject();
-        private List<Message> Message_List;
-        private List<Message> Filtered_Message_List;
+        private List<Message> Message_List = new List<Message>();
+        private List<Message> Filtered_Message_List= new List<Message>();
         DispatcherTimer timer = new DispatcherTimer();
+        int editIndex = -1;
 
         //Creates the windows' display
         public Chat(User userlogin)
         {
-
+            Retrieve retrieve = new Retrieve();
+            Message_List = retrieve.pullLastMassages();
             this.DataContext = _main;
             this.userlogin = userlogin;
             InitializeComponent();
             timer.Interval = TimeSpan.FromSeconds(2);
-            timer.Tick += Button_Filter_Sort_Click;/*update;*/
+            timer.Tick += Button_Filter_Sort_Click;/*update(retrieve.pullLastMassages());*/
             timer.Start();
             
         }
-        
+        //Enter
+        private void TextBox_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                //loging the activety of the project 
+                logging_activety.logging_msg("enter activation from user to send message");
+                TextBox box = sender as TextBox;
+                _main.MessageContent = box.Text;
+            }
+        }
         //updates the 
-        private void update(List<Message> Message_List)
+        private void update(List<Message> Message_List1)
         {
 
             //Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
             // updates the Filtered_Message_List using current filter and sort , so that the textblock text will be binded to it
             _main.Messages.Clear(); 
             logging_activety.logging_msg("Updating the interface..."); // Log
-            foreach (Message x in Message_List)
+            foreach (Message x in Message_List1)
             {
+
                 {
-                    _main.Messages.Add((String)("id:" + x.grupid + "  " + x.UserName + ":  " + x.MessageContent + "   Time:" + x.Data ));
-                    
-                    if (!(Combo_Id.Items.Contains(x.grupid)))
+                    _main.Messages.Add((String)("id:" + x.getGroupID() + "  " + x.getSender() + ":  " + x.getContent() + "   Time:" + x.getTime()));
+
+                    if (!(Combo_Id.Items.Contains(x.getGroupID())))
                     {
-                        Combo_Id.Items.Add(x.grupid);
+                        Combo_Id.Items.Add(x.getGroupID());
                     }
-                    if (!(Combo_User.Items.Contains("<" + x.grupid + "," + x.UserName + ">")))
+                    if (!(Combo_User.Items.Contains("<" + x.getGroupID() + "," + x.getSender() + ">")))
                     {
-                        Combo_User.Items.Add("<" + x.grupid + "," + x.UserName + ">");
+                        Combo_User.Items.Add("<" + x.getGroupID() + "," + x.getSender() + ">");
                     }
                 }
             }
-           
+
         }
 
         // Closes the chat window and opens a main window
@@ -92,59 +105,66 @@ namespace GUI
         private void Button_Send_Click(object sender, RoutedEventArgs e)
         { 
             TextBox box = sender as TextBox;
-            send_reseve_Massge temp = new send_reseve_Massge();
+            Sending temp = new Sending();
             String mes = _main.MessageContent; 
             logging_activety.logging_msg("Message sending attempt..."); // Log
             if (!Legal_Message(mes))
                     return;
             
-            _main.Messages.Add("id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
+            _main.Messages.Add("Group Id:" + userlogin.getGroupID() + "  " + userlogin.getID() + ":  " + _main.MessageContent + "   Time:" + DateTime.Now);
             _main.MessageContent = "";
-            temp.Send(userlogin.getNickName(), userlogin.getID(), mes);
-            logging_activety.logging_msg("The message was sent successfully"); // Log
-
+            bool success = temp.SendMessage(userlogin , mes , DateTime.Now);
+            if(success)
+                logging_activety.logging_msg("The message was sent successfully"); // Log
+            else
+            {
+                logging_activety.logging_msg("Lost connection with the database"); // Log
+                MessageBox.Show("Could not send message , please check your connection");
+            }
         }
 
         // Changes the messages interface by the user's choice
         private void Button_Filter_Sort_Click(object sender, EventArgs  e)
-        { 
-            logging_activety.logging_msg("activat filter"); // Log
-            Message_List = Business_layer.communication.send_reseve_Massge.recallMessage();
-            Message_List = Business_layer.communication.Retrieve.pullallMassages();
-            logging_activety.logging_msg("pul new filter instens"); // Log
+        {
+            Retrieve updateMessages = new Retrieve();
+            DateTime lastMessageTime = Message_List.Last().getTime();
+    //        List<Message> newList = updateMessages.pullNewMassages(lastMessageTime);
+            Message_List.AddRange(updateMessages.pullNewMassages(lastMessageTime));
+            if (Combo_Filter.Text.Equals("group") && !(Combo_Id.SelectedItem == null)) {
+                Message_List = updateMessages.Filterid(Combo_Id.Text);
+            }
+            if (Combo_Filter.Text.Equals("user") && !(Combo_User.SelectedItem == null)) {
+                Message_List = updateMessages.Filteruser(iduser(Combo_User.Text),nameuser(Combo_User.Text));
+            }
             FilterAndSort tmp = new FilterAndSort();
-            logging_activety.logging_msg("filter Identefing"); // Log
-            if (RadioButton1.IsChecked==true)
-            {
-                logging_activety.logging_msg("sort and filter message list"); // Log
-                if (!(Combo_Filter.Text.Equals("user")))
-                {
-                    logging_activety.logging_msg("send filter paremeter to filter fun"); // Log
-                    Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Filter.Text, Combo_Id.Text, "", Combo_Sort.Text, true);
-                }
-                if (Combo_Filter.Text.Equals("user") & (!(Combo_User.SelectedItem == null)))
-                {
-                    Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Filter.Text, iduser(Combo_User.Text), nameuser(Combo_User.Text), Combo_Sort.Text, true);
-                }
-            }
-
-            if (RadioButton2.IsChecked == true)
-            {
-                logging_activety.logging_msg("sort and filter"); // Log
-                if (!(Combo_Filter.Text.Equals("user")))
-                {
-                    Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Filter.Text, Combo_Id.Text, "", Combo_Sort.Text, false);
-                }
-                if (Combo_Filter.Text.Equals("user")&(!(Combo_User.SelectedItem==null)))
-                {
-                    Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Filter.Text, iduser(Combo_User.Text), nameuser(Combo_User.Text), Combo_Sort.Text, false);
-                }
-            }
-
+            Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Sort.Text, RadioButton1.IsChecked==true);
+    //        fixlist(newList);
             update(Filtered_Message_List);
+        }
+        public void fixlist(List<Message> checkList) {
+
+            // delete duplicates
+            foreach(Message message in checkList)
+            {
+                Guid dupilcateCheck = message.getGuid();
+                for(int i= Filtered_Message_List.Count-1; i>=0; i--)
+                {
+                    if (Filtered_Message_List.ElementAt(i).getGuid().Equals(dupilcateCheck))
+                        Filtered_Message_List.RemoveAt(i);
+                       
+                }
+            }
+
+            // limiting the size of the list to 200
+            int delta = Filtered_Message_List.Count - 200;
+            if (delta > 0)
+            {
+                for (int i = delta; i > 0; i--)
+                    Filtered_Message_List.RemoveAt(0);
+            }
+
 
         }
-
         //
         public string iduser(string id) {
             
@@ -171,5 +191,55 @@ namespace GUI
             return true;
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            logging_activety.logging_msg("editing message attempt");
+            Sending temp = new Sending();
+            String newContent = Text_Edit.Text;
+            if(!Legal_Message(newContent))
+                return;
+            
+            Message message = Filtered_Message_List.ElementAt(editIndex);
+            bool done =temp.EditMessage( message , newContent , DateTime.Now);
+            if (done)
+            {
+                logging_activety.logging_msg("Message was edited");
+                MessageBox.Show("Message was edited Successfully");
+            }
+            else
+            {
+                logging_activety.logging_msg("Message was NOT edited , connection lost with the server!");
+                MessageBox.Show("Cannot connect to the database");
+            }
+
+
+        }
+
+        private void ListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            int index = Box_Messages.SelectedIndex;
+            if (index != -1)
+            {
+                Message check = Filtered_Message_List.ElementAt(index);
+
+                if (userlogin.getID() == check.getID())
+                {
+                    editIndex = index;
+                    Text_Edit.Visibility = Visibility.Visible;
+                    Button_Edit.Visibility = Visibility.Visible;
+                    Text_Edit.Text = check.getContent();
+             
+                }
+
+                else
+                {
+                    Text_Edit.Visibility = Visibility.Hidden;
+                    Button_Edit.Visibility = Visibility.Hidden;
+                    Text_Edit.Text = String.Empty;
+                }
+            }
+
+
+        }
     }
 }

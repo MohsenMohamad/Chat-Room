@@ -1,65 +1,59 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using Communication_Layer.CommunicationLayer;
+
 
 namespace persistent_layer.Data_type
 {
     [Serializable]
-    public class Message : IMessage
+    public class Message
     {
-       public Guid ID;
-       public string UserName;
-       public DateTime Data;
-       public string MessageContent;
-       public string grupid;
-       
+       private User sender;
+       private DateTime time;
+       private String content;
+       private Guid guid;
 
-        public Message(Guid Id, string UserName, DateTime Data, string MessageContent,string gid) {
-            this.ID = Id;
-            this.UserName = UserName;
-            this.Data = Data;
-            this.MessageContent = MessageContent;
-            this.grupid = gid;
-        }
-        public Guid Id
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public Message(Guid messageGuid ,User sender, String messageBody , DateTime sendingTime) {
 
-        string IMessage.UserName
+            this.sender = sender;
+            time = sendingTime;
+            content = messageBody;
+            guid = messageGuid;
+            
+        }
+        
+        public String getSender()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return sender.getNickName();
+        }
+        public DateTime getTime()
+        {
+            return time;
         }
 
-        DateTime IMessage.Date
+        public int getGroupID()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return sender.getGroupID();
+        }
+        
+        public int getID()
+        {
+            return sender.getID();
         }
 
-        string IMessage.MessageContent
+        public String getContent()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return content;
         }
 
-        string IMessage.GroupID
+        public Guid getGuid()
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            return guid;
+        }
+
+        public User getUser()
+        {
+            return sender;
         }
     }
 }

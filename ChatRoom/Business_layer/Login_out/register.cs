@@ -18,7 +18,7 @@ namespace Business_layer.Login_out
 
             //checks if the user already exists in the data base
 
-            String hashed_Password = hashing.GetHashString(password);
+            String hashed_Password = hashing.GetHashString(password+ "1337");
 
             SQL_User temp = new SQL_User();
             bool added = temp.RegisterUser(name, hashed_Password, groupID);
