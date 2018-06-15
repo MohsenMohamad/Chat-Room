@@ -128,6 +128,7 @@ namespace GUI
         {
             Retrieve updateMessages = new Retrieve();
             DateTime lastMessageTime = Message_List.Last().getTime();
+    //        List<Message> newList = updateMessages.pullNewMassages(lastMessageTime);
             Message_List.AddRange(updateMessages.pullNewMassages(lastMessageTime));
             if (Combo_Filter.Text.Equals("group") && !(Combo_Id.SelectedItem == null)) {
                 Message_List = updateMessages.Filterid(Combo_Id.Text);
@@ -137,10 +138,31 @@ namespace GUI
             }
             FilterAndSort tmp = new FilterAndSort();
             Filtered_Message_List = tmp.Filterandsort(Message_List, Combo_Sort.Text, RadioButton1.IsChecked==true);
-            fixlist();
+    //        fixlist(newList);
             update(Filtered_Message_List);
         }
-        public void fixlist() {
+        public void fixlist(List<Message> checkList) {
+
+            // delete duplicates
+            foreach(Message message in checkList)
+            {
+                Guid dupilcateCheck = message.getGuid();
+                for(int i= Filtered_Message_List.Count-1; i>=0; i--)
+                {
+                    if (Filtered_Message_List.ElementAt(i).getGuid().Equals(dupilcateCheck))
+                        Filtered_Message_List.RemoveAt(i);
+                       
+                }
+            }
+
+            // limiting the size of the list to 200
+            int delta = Filtered_Message_List.Count - 200;
+            if (delta > 0)
+            {
+                for (int i = delta; i > 0; i--)
+                    Filtered_Message_List.RemoveAt(0);
+            }
+
 
         }
         //
@@ -171,14 +193,24 @@ namespace GUI
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            logging_activety.logging_msg("editing message attempt");
             Sending temp = new Sending();
             String newContent = Text_Edit.Text;
             if(!Legal_Message(newContent))
                 return;
             
             Message message = Filtered_Message_List.ElementAt(editIndex);
-            bool k =temp.EditMessage( message , newContent , DateTime.Now);
-            MessageBox.Show("Message was edited Successfully");
+            bool done =temp.EditMessage( message , newContent , DateTime.Now);
+            if (done)
+            {
+                logging_activety.logging_msg("Message was edited");
+                MessageBox.Show("Message was edited Successfully");
+            }
+            else
+            {
+                logging_activety.logging_msg("Message was NOT edited , connection lost with the server!");
+                MessageBox.Show("Cannot connect to the database");
+            }
 
 
         }
@@ -196,7 +228,7 @@ namespace GUI
                     Text_Edit.Visibility = Visibility.Visible;
                     Button_Edit.Visibility = Visibility.Visible;
                     Text_Edit.Text = check.getContent();
-             //       MessageBox.Show("");
+             
                 }
 
                 else
