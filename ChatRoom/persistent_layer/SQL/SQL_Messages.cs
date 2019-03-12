@@ -11,6 +11,7 @@ namespace persistent_layer.SQL
 {
     public class SQL_Messages
     {
+    ////test
         string connetion_string = null;
         string sql_query = null;
         string server_address = "ise172.ise.bgu.ac.il,1433\\DB_LAB";
